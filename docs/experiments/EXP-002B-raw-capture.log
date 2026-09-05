@@ -1,0 +1,199 @@
+  0.22  raw 032f1400 03377200 034fdc00 03561a00 | n=512 bytes=2048 | min=   131018 max=   300394 mean= 197293.1 rms= 201394.2 (2.4008% FS) zeros=  0 flat=  1
+  0.54  raw 01684a00 0165be00 015fa400 013efa00 | n=512 bytes=2048 | min=    34202 max=   174572 mean=  97188.7 rms= 101618.1 (1.2114% FS) zeros=  0 flat=  1
+  0.76  raw 01160800 01172000 010e4c00 01024c00 | n=512 bytes=2048 | min=    35626 max=   189950 mean= 121851.7 rms= 127761.0 (1.5230% FS) zeros=  0 flat=  1
+  0.98  raw 0097b000 00955a00 009fc200 00938e00 | n=512 bytes=2048 | min=   -23106 max=   160776 mean=  56073.6 rms=  70103.8 (0.8357% FS) zeros=  0 flat=  1
+  1.31  raw 0105b000 00e3aa00 00d7da00 00e4c200 | n=512 bytes=2048 | min=   -63146 max=    90042 mean=  23565.1 rms=  43862.9 (0.5229% FS) zeros=  0 flat=  1
+  1.53  raw 018c1c00 0168d000 01588600 015f6e00 | n=512 bytes=2048 | min=   -20912 max=   101404 mean=  43488.0 rms=  49890.3 (0.5947% FS) zeros=  0 flat=  1
+  1.75  raw 004e7400 00474e00 0052c200 00557c00 | n=512 bytes=2048 | min=   -65504 max=   105540 mean=  18195.0 rms=  41740.0 (0.4976% FS) zeros=  0 flat=  1
+  1.96  raw 039fbc00 03ab5a00 03b5e000 03c7aa00 | n=512 bytes=2048 | min=   103512 max=   268544 mean= 184458.7 rms= 187833.8 (2.2392% FS) zeros=  0 flat=  1
+  2.30  raw 0044fa00 00372200 001c3600 001ec800 | n=512 bytes=2048 | min=    -5392 max=   162550 mean=  82078.7 rms=  94540.3 (1.1270% FS) zeros=  0 flat=  1
+  2.52  raw fe912600 feac9a00 feb54400 fea98c00 | n=512 bytes=2048 | min=  -130032 max=    31050 mean= -72192.2 rms=  79625.7 (0.9492% FS) zeros=  0 flat=  1
+  2.74  raw fbf65e00 fbd73400 fbd5be00 fbdabe00 | n=512 bytes=2048 | min=  -272962 max=  -109334 mean=-206343.7 rms= 208646.1 (2.4873% FS) zeros=  0 flat=  1
+  3.06  raw 01ffea00 01ef9400 01d2f200 01bddc00 | n=512 bytes=2048 | min=   113966 max=   339298 mean= 217861.9 rms= 224527.1 (2.6766% FS) zeros=  0 flat=  1
+  3.28  raw 0106fe00 010a1a00 010b2e00 01276800 | n=512 bytes=2048 | min=   -16482 max=   182800 mean=  70869.1 rms=  81814.9 (0.9753% FS) zeros=  0 flat=  1
+  3.50  raw fff86200 000e5200 00118c00 00069800 | n=512 bytes=2048 | min=   -61818 max=    91764 mean=  13891.1 rms=  40949.9 (0.4882% FS) zeros=  0 flat=  1
+  3.82  raw 00f85200 01010800 01037600 01086a00 | n=512 bytes=2048 | min=   -26348 max=   195556 mean=  71263.1 rms=  83154.7 (0.9913% FS) zeros=  0 flat=  1
+  4.04  raw ff2ef400 ff278800 ff406800 ff5afe00 | n=512 bytes=2048 | min=  -104142 max=   106024 mean= -15801.8 rms=  51053.3 (0.6086% FS) zeros=  0 flat=  1
+  4.26  raw fe292400 fe16be00 fdf63200 fdffa000 | n=512 bytes=2048 | min=  -267336 max=   -65814 mean=-166148.1 rms= 171115.0 (2.0398% FS) zeros=  0 flat=  1
+  4.48  raw 01124400 0114c200 0126a000 013bf600 | n=512 bytes=2048 | min=   -12536 max=   257210 mean= 131414.1 rms= 144020.6 (1.7169% FS) zeros=  0 flat=  1
+  4.80  raw ff9d6600 ff981c00 ff875c00 ff629e00 | n=512 bytes=2048 | min=   -56034 max=   174814 mean=  66239.1 rms=  84438.8 (1.0066% FS) zeros=  0 flat=  1
+  5.02  raw ffdba000 fffd3a00 ffed6c00 fff76200 | n=512 bytes=2048 | min=  -250988 max=   137636 mean= -20458.0 rms=  99403.9 (1.1850% FS) zeros=  0 flat=  1
+  5.24  raw 00dce800 00fa4a00 00f18000 00e29000 | n=512 bytes=2048 | min=  -100556 max=   109476 mean=   5756.5 rms=  54215.8 (0.6463% FS) zeros=  0 flat=  1
+  5.57  raw 039d2600 0218aa00 00937200 febd5c00 | n=512 bytes=2048 | min=  -841010 max=   499226 mean=-105880.1 rms= 291569.8 (3.4758% FS) zeros=  0 flat=  1
+  5.79  raw fecaf000 fec51800 fe65b200 fddda200 | n=512 bytes=2048 | min=  -174712 max=   265000 mean=  77809.1 rms= 124416.5 (1.4832% FS) zeros=  0 flat=  1
+  6.00  raw 01cbd000 01aa7800 01551e00 012b0800 | n=512 bytes=2048 | min=  -121702 max=   117712 mean=  -5222.2 rms=  46232.1 (0.5511% FS) zeros=  0 flat=  1
+  6.33  raw 011e5400 010b0a00 00870600 00567800 | n=512 bytes=2048 | min=  -695614 max=   531586 mean= -62233.2 rms= 288825.9 (3.4431% FS) zeros=  0 flat=  1
+  6.54  raw fdf02400 fe6de200 ff27d200 0007a200 | n=512 bytes=2048 | min=  -628618 max=   735268 mean=  79579.6 rms= 367981.8 (4.3867% FS) zeros=  0 flat=  1
+  6.76  raw 026cae00 029e6400 0282ee00 02754000 | n=512 bytes=2048 | min=  -132294 max=   171620 mean=   9700.5 rms=  61637.6 (0.7348% FS) zeros=  0 flat=  1
+  6.98  raw fe78b600 fe75f400 fed34400 fec2a800 | n=512 bytes=2048 | min=  -180420 max=   103380 mean= -41137.6 rms=  63777.0 (0.7603% FS) zeros=  0 flat=  1
+  7.31  raw 04c00400 043fc600 03d92800 03b16e00 | n=512 bytes=2048 | min=  -433196 max=   440528 mean=  60911.2 rms= 236311.5 (2.8171% FS) zeros=  0 flat=  1
+  7.52  raw ff83c400 ffc11a00 ffec3800 fff43a00 | n=512 bytes=2048 | min=  -117864 max=   148970 mean=  10893.6 rms=  55307.0 (0.6593% FS) zeros=  0 flat=  1
+  7.74  raw fc90a800 fc53f200 fc6c2200 fc7e3000 | n=512 bytes=2048 | min=  -244034 max=     2554 mean=-127232.1 rms= 137494.3 (1.6391% FS) zeros=  0 flat=  1
+  8.07  raw 029c4c00 01c87c00 00f1ea00 00392200 | n=512 bytes=2048 | min=  -358338 max=   555126 mean= 189806.9 rms= 280098.0 (3.3390% FS) zeros=  0 flat=  1
+  8.29  raw 002a8800 00350e00 0026ee00 0001f200 | n=512 bytes=2048 | min=   -84976 max=   192288 mean=  31567.9 rms=  69048.1 (0.8231% FS) zeros=  0 flat=  1
+  8.51  raw ff3bf400 ff716c00 ff945c00 ff9f9600 | n=512 bytes=2048 | min=   -88016 max=    75874 mean=  -3435.1 rms=  32141.8 (0.3832% FS) zeros=  0 flat=  1
+  8.83  raw fb7faa00 fc81ae00 fe02a000 ff4b1e00 | n=512 bytes=2048 | min=  -322020 max=   312282 mean= -25470.6 rms= 133507.4 (1.5915% FS) zeros=  0 flat=  1
+  9.05  raw 0279e200 02934600 02a2e400 0289d200 | n=512 bytes=2048 | min=   -15170 max=   257566 mean= 102157.0 rms= 117967.2 (1.4063% FS) zeros=  0 flat=  1
+  9.27  raw 003ca200 0037ea00 ff686400 ffe11600 | n=512 bytes=2048 | min=  -164284 max=   125684 mean= -39034.5 rms=  65110.4 (0.7762% FS) zeros=  0 flat=  1
+  9.49  raw fee17e00 fef13c00 fed2fa00 fe863e00 | n=512 bytes=2048 | min=  -278240 max=    90964 mean= -89462.0 rms= 120589.1 (1.4375% FS) zeros=  0 flat=  1
+  9.81  raw 01657800 0187d000 017f8a00 015b3e00 | n=512 bytes=2048 | min=     1186 max=   196714 mean=  98073.9 rms= 107192.4 (1.2778% FS) zeros=  0 flat=  1
+ 10.03  raw fbccf800 fbba8e00 fb8a8e00 fba58c00 | n=512 bytes=2048 | min=  -425846 max=  -142708 mean=-273860.0 rms= 281270.2 (3.3530% FS) zeros=  0 flat=  1
+ 10.25  raw fff09200 fff79a00 ffdb2a00 ffd57e00 | n=512 bytes=2048 | min=   -92284 max=   161814 mean=  21470.8 rms=  64740.5 (0.7718% FS) zeros=  0 flat=  1
+ 10.57  raw fef60400 ff18f000 ff683800 fedd3c00 | n=512 bytes=2048 | min=   -74436 max=   324898 mean= 117362.4 rms= 138994.1 (1.6569% FS) zeros=  0 flat=  1
+ 10.78  raw 02867800 02cd7000 0299ac00 02bbb200 | n=512 bytes=2048 | min=  -458056 max=   377946 mean= -29238.9 rms= 198189.4 (2.3626% FS) zeros=  0 flat=  1
+ 11.00  raw 02bcb400 02658600 01e10800 014e7200 | n=512 bytes=2048 | min=  -136898 max=   248204 mean=  68624.3 rms= 107557.6 (1.2822% FS) zeros=  0 flat=  1
+ 11.33  raw ffaffa00 ffa45000 ff8d8c00 ff617e00 | n=512 bytes=2048 | min=  -154356 max=   140168 mean= -11449.3 rms=  78278.8 (0.9332% FS) zeros=  0 flat=  1
+ 11.55  raw fbb24400 fbdade00 fc78c600 fd47c200 | n=512 bytes=2048 | min=  -660830 max=   372756 mean= -23284.2 rms= 218384.6 (2.6033% FS) zeros=  0 flat=  1
+ 11.77  raw 022b7c00 02503e00 024dc800 01eedc00 | n=512 bytes=2048 | min=  -136226 max=   243280 mean=  54947.7 rms= 104821.9 (1.2496% FS) zeros=  0 flat=  1
+ 12.09  raw 002c6800 00357800 00309c00 002afe00 | n=512 bytes=2048 | min=   -88776 max=   122424 mean=   4048.1 rms=  49731.7 (0.5928% FS) zeros=  0 flat=  1
+ 12.31  raw ff386400 ffc55400 007d0200 00801a00 | n=512 bytes=2048 | min=  -487746 max=   145700 mean=-104621.7 rms= 161307.6 (1.9229% FS) zeros=  0 flat=  1
+ 12.53  raw 012c0c00 01476e00 01425c00 01651800 | n=512 bytes=2048 | min=   -53292 max=   153336 mean=  39761.4 rms=  62151.5 (0.7409% FS) zeros=  0 flat=  1
+ 12.75  raw fce85600 fcf2f400 fd5fbe00 fd451e00 | n=512 bytes=2048 | min=  -242656 max=   170534 mean=-101562.9 rms= 120168.0 (1.4325% FS) zeros=  0 flat=  1
+ 13.08  raw feece000 fef50200 fea98800 fe7f4800 | n=512 bytes=2048 | min=  -259952 max=   307004 mean=  64914.0 rms= 145689.0 (1.7367% FS) zeros=  0 flat=  1
+ 13.31  raw 01340200 011a5600 00f1a600 00d7ea00 | n=512 bytes=2048 | min=   -61948 max=   183358 mean=  61017.6 rms=  81553.4 (0.9722% FS) zeros=  0 flat=  1
+ 13.53  raw fc4ee600 fb93f800 fbc56000 fc641600 | n=512 bytes=2048 | min=  -467178 max=   340760 mean= -95751.2 rms= 192099.0 (2.2900% FS) zeros=  0 flat=  1
+ 13.86  raw fe1c1c00 fe2bac00 fe3c0600 fe2ac200 | n=512 bytes=2048 | min=  -331838 max=   325072 mean=  51713.2 rms= 147013.4 (1.7525% FS) zeros=  0 flat=  1
+ 14.07  raw 0160c400 019a6e00 01c64e00 01e21400 | n=512 bytes=2048 | min=   -58586 max=   177338 mean=  70040.5 rms=  92743.4 (1.1056% FS) zeros=  0 flat=  1
+ 14.29  raw 0373d000 03bf0e00 03dbdc00 043fb000 | n=512 bytes=2048 | min=  -534560 max=   300534 mean= -69844.7 rms= 187271.3 (2.2324% FS) zeros=  0 flat=  1
+ 14.61  raw 01bef200 019a5400 016f1e00 015c4000 | n=512 bytes=2048 | min=   -24926 max=   212266 mean=  94349.8 rms= 104578.7 (1.2467% FS) zeros=  0 flat=  1
+ 14.83  raw 02488c00 025e9800 02749a00 029c0600 | n=512 bytes=2048 | min=  -116236 max=   172838 mean=  -6517.7 rms=  60032.9 (0.7156% FS) zeros=  0 flat=  1
+ 15.05  raw fc1a8200 fbd73200 fbd21a00 fbd69e00 | n=512 bytes=2048 | min=  -288512 max=  -100626 mean=-225452.8 rms= 228754.4 (2.7270% FS) zeros=  0 flat=  1
+ 15.36  raw 02b4b000 02c39e00 02d07400 02bf4400 | n=512 bytes=2048 | min=   103646 max=   301830 mean= 202847.0 rms= 207813.3 (2.4773% FS) zeros=  0 flat=  1
+ 15.59  raw ffe4e000 fff6c400 00185c00 00026600 | n=512 bytes=2048 | min=   -85068 max=   100766 mean=   6718.0 rms=  45444.4 (0.5417% FS) zeros=  0 flat=  1
+ 15.81  raw 0189ec00 012a4c00 010d7800 01436a00 | n=512 bytes=2048 | min=  -143182 max=   100844 mean= -35517.3 rms=  65703.1 (0.7832% FS) zeros=  0 flat=  1
+ 16.02  raw fdbf5600 fd6f0c00 fd9c6600 fdf89000 | n=512 bytes=2048 | min=  -327648 max=  -125164 mean=-215109.7 rms= 218668.4 (2.6067% FS) zeros=  0 flat=  1
+ 16.34  raw 00420000 006bac00 00cdd800 00cde400 | n=512 bytes=2048 | min=   -60278 max=   104422 mean=  31002.7 rms=  46830.2 (0.5583% FS) zeros=  0 flat=  1
+ 16.56  raw 02154200 02198a00 02177400 022d8c00 | n=512 bytes=2048 | min=   -50162 max=   259920 mean=  96538.7 rms= 122039.5 (1.4548% FS) zeros=  0 flat=  1
+ 16.78  raw 00028800 00111c00 00135200 00139000 | n=512 bytes=2048 | min=  -115798 max=    48146 mean= -20781.9 rms=  31815.8 (0.3793% FS) zeros=  0 flat=  1
+ 17.11  raw 006b2200 005a0400 007a8400 00bd8e00 | n=512 bytes=2048 | min=   -67650 max=    84088 mean=  23626.3 rms=  39326.6 (0.4688% FS) zeros=  0 flat=  1
+ 17.32  raw 021c9800 0217d800 01f1f200 01ce8400 | n=512 bytes=2048 | min=   -12204 max=   143448 mean=  66456.3 rms=  73877.3 (0.8807% FS) zeros=  0 flat=  1
+ 17.54  raw ffa1ba00 ff910e00 ff594200 ff459400 | n=512 bytes=2048 | min=  -139170 max=    78628 mean= -42356.4 rms=  66331.3 (0.7907% FS) zeros=  0 flat=  1
+ 17.87  raw fe72ba00 fe74c200 fe607600 fe4ec200 | n=512 bytes=2048 | min=  -182804 max=   -15306 mean=-106613.5 rms= 113013.6 (1.3472% FS) zeros=  0 flat=  1
+ 18.09  raw 04234600 03a44200 03ad8800 04023800 | n=512 bytes=2048 | min=   123990 max=   299186 mean= 214252.3 rms= 216656.8 (2.5828% FS) zeros=  0 flat=  1
+ 18.31  raw ff61bc00 ff460000 ff4c7200 ff6ca400 | n=512 bytes=2048 | min=   -77924 max=   139826 mean=  22269.3 rms=  49965.0 (0.5956% FS) zeros=  0 flat=  1
+ 18.52  raw fd519400 fd358200 fd317800 fd6a0600 | n=512 bytes=2048 | min=  -280968 max=  -127172 mean=-212893.3 rms= 214754.2 (2.5601% FS) zeros=  0 flat=  1
+ 18.85  raw ff813800 ff73ca00 ff99de00 ffc8b800 | n=512 bytes=2048 | min=   -35894 max=   104828 mean=  32785.1 rms=  45653.9 (0.5442% FS) zeros=  0 flat=  1
+ 19.07  raw ffc37600 ff9b9e00 ff824200 ff7cee00 | n=512 bytes=2048 | min=   -34604 max=   167942 mean=  74696.3 rms=  86649.5 (1.0329% FS) zeros=  0 flat=  1
+ 19.29  raw ff555600 ff570a00 ff554a00 ff6fca00 | n=512 bytes=2048 | min=  -107900 max=    16136 mean= -46844.3 rms=  55957.8 (0.6671% FS) zeros=  0 flat=  1
+ 19.61  raw fe025a00 fe355c00 fe55a000 fe47be00 | n=512 bytes=2048 | min=  -188324 max=   -15764 mean= -98166.4 rms= 106245.0 (1.2665% FS) zeros=  0 flat=  1
+ 19.83  raw 02e85600 02b7b400 02924e00 0280ce00 | n=512 bytes=2048 | min=    88684 max=   330656 mean= 220385.1 rms= 228673.8 (2.7260% FS) zeros=  0 flat=  1
+ 20.05  raw 00e7fc00 00ed0200 00e72800 00f42a00 | n=512 bytes=2048 | min=   -72688 max=    78458 mean=  14186.5 rms=  32325.8 (0.3854% FS) zeros=  0 flat=  1
+ 20.38  raw ff785400 ff5b4e00 ff456600 ff4c6e00 | n=512 bytes=2048 | min=  -150674 max=    60214 mean= -22429.1 rms=  51148.4 (0.6097% FS) zeros=  0 flat=  1
+ 20.59  raw 007d7e00 00a00800 00c87800 00defa00 | n=512 bytes=2048 | min=   -84474 max=   108508 mean=  11560.2 rms=  43826.5 (0.5225% FS) zeros=  0 flat=  1
+ 20.81  raw ffca6200 ffe68800 000eda00 002d5e00 | n=512 bytes=2048 | min=  -137488 max=    93908 mean= -13368.9 rms=  52973.9 (0.6315% FS) zeros=  0 flat=  1
+ 21.14  raw fedc4200 fecdae00 feae1600 fe74e400 | n=512 bytes=2048 | min=  -162160 max=   -38494 mean= -94462.1 rms=  98024.0 (1.1685% FS) zeros=  0 flat=  1
+ 21.36  raw 0145de00 017b2000 01841200 016dba00 | n=512 bytes=2048 | min=    67628 max=   214472 mean= 128886.5 rms= 132271.7 (1.5768% FS) zeros=  0 flat=  1
+ 21.57  raw 0125c000 0117e800 0106d200 00f21800 | n=512 bytes=2048 | min=  -126938 max=    78810 mean= -18692.5 rms=  44870.5 (0.5349% FS) zeros=  0 flat=  1
+ 21.79  raw ff93d800 ff8e7400 ff8aba00 ff8b1200 | n=512 bytes=2048 | min=   -83780 max=    62782 mean=  -2876.4 rms=  30244.3 (0.3605% FS) zeros=  0 flat=  1
+ 22.12  raw 01741200 01419200 012b1400 00fb5e00 | n=512 bytes=2048 | min=     4576 max=   156640 mean=  78565.1 rms=  85116.4 (1.0147% FS) zeros=  0 flat=  1
+ 22.34  raw 0118ac00 0134c800 01482c00 01448200 | n=512 bytes=2048 | min=   -43792 max=    96598 mean=  34054.8 rms=  47107.8 (0.5616% FS) zeros=  0 flat=  1
+ 22.56  raw ff270c00 ff362000 ff418a00 ff460c00 | n=512 bytes=2048 | min=  -131748 max=    12734 mean= -44785.3 rms=  54362.0 (0.6480% FS) zeros=  0 flat=  1
+ 22.89  raw fc4dcc00 fc3c0a00 fc360a00 fc2fca00 | n=512 bytes=2048 | min=  -365966 max=  -193462 mean=-262765.9 rms= 266176.5 (3.1731% FS) zeros=  0 flat=  1
+ 23.10  raw ff286c00 ff197600 ff225400 ff31d200 | n=512 bytes=2048 | min=   -97316 max=    58180 mean= -34586.5 rms=  45652.4 (0.5442% FS) zeros=  0 flat=  1
+ 23.32  raw 043c4000 0452f400 047e2200 049ae400 | n=512 bytes=2048 | min=   158750 max=   356452 mean= 238207.9 rms= 242613.8 (2.8922% FS) zeros=  0 flat=  1
+ 23.65  raw 01751c00 0172b600 01659e00 016e2000 | n=512 bytes=2048 | min=   -24288 max=   108078 mean=  32973.9 rms=  41097.6 (0.4899% FS) zeros=  0 flat=  1
+ 23.87  raw faf0fa00 fb105400 fb3e2400 fb2a5a00 | n=512 bytes=2048 | min=  -366716 max=  -246838 mean=-304459.2 rms= 305554.8 (3.6425% FS) zeros=  0 flat=  1
+ 24.09  raw 00025000 000bc800 0002aa00 fffe2600 | n=512 bytes=2048 | min=  -119790 max=    48482 mean= -17396.0 rms=  44725.1 (0.5332% FS) zeros=  0 flat=  2
+ 24.30  raw 03aac600 03ab6400 03ab2c00 03af4c00 | n=512 bytes=2048 | min=   116724 max=   241484 mean= 167679.5 rms= 169555.9 (2.0213% FS) zeros=  0 flat=  1
+ 24.63  raw 00d1ee00 00ec7600 00edca00 00fae200 | n=512 bytes=2048 | min=  -113176 max=   116582 mean=  -1347.9 rms=  56450.6 (0.6729% FS) zeros=  0 flat=  1
+ 24.85  raw ff73c800 ff827000 ff947400 ffa4da00 | n=512 bytes=2048 | min=   -72036 max=    35278 mean= -20878.0 rms=  29067.5 (0.3465% FS) zeros=  0 flat=  1
+ 25.07  raw ff59fa00 ff521800 ff42c800 ff42fe00 | n=512 bytes=2048 | min=   -62992 max=    67430 mean=  -1881.1 rms=  27633.5 (0.3294% FS) zeros=  0 flat=  1
+ 25.39  raw 004a7200 003d8400 0044a200 00572400 | n=512 bytes=2048 | min=   -26406 max=    74506 mean=  21131.2 rms=  31569.8 (0.3763% FS) zeros=  0 flat=  1
+ 25.61  raw 001a4c00 00179200 fffd0400 ffd0a200 | n=512 bytes=2048 | min=   -63290 max=    86174 mean=  19260.8 rms=  45819.9 (0.5462% FS) zeros=  0 flat=  1
+ 25.83  raw 0084b800 0064f600 004db600 00410a00 | n=512 bytes=2048 | min=   -70218 max=    68496 mean= -10399.4 rms=  30006.0 (0.3577% FS) zeros=  0 flat=  1
+ 26.16  raw ff681400 ff725000 ff92ac00 ffa9c400 | n=512 bytes=2048 | min=   -53254 max=    75916 mean=   4661.9 rms=  26767.5 (0.3191% FS) zeros=  0 flat=  1
+ 26.37  raw 00170600 00060000 0006fe00 0014c800 | n=512 bytes=2048 | min=  -105738 max=    75734 mean= -11876.2 rms=  48767.8 (0.5814% FS) zeros=  0 flat=  1
+ 26.59  raw ff5b8c00 ff63da00 ff703200 ff640400 | n=512 bytes=2048 | min=   -86728 max=    76054 mean= -13953.9 rms=  34932.4 (0.4164% FS) zeros=  0 flat=  1
+ 26.92  raw ff3cf800 ff48e400 ff525c00 ff5fa200 | n=512 bytes=2048 | min=   -78874 max=     4630 mean= -31370.6 rms=  34878.1 (0.4158% FS) zeros=  0 flat=  1
+ 27.14  raw fe965800 fe870800 fe7b6c00 fe815600 | n=512 bytes=2048 | min=  -188686 max=   -48142 mean=-132600.9 rms= 137530.3 (1.6395% FS) zeros=  0 flat=  1
+ 27.35  raw 03b08400 039cce00 03888000 0377b800 | n=512 bytes=2048 | min=    99944 max=   288334 mean= 204942.8 rms= 210648.0 (2.5111% FS) zeros=  0 flat=  1
+ 27.57  raw 00a26000 0096e400 008b2c00 00856800 | n=512 bytes=2048 | min=   -40526 max=    86992 mean=  22687.5 rms=  35462.4 (0.4227% FS) zeros=  0 flat=  1
+ 27.91  raw ff93a200 ff970800 ff99dc00 ff99c400 | n=512 bytes=2048 | min=   -61594 max=    80410 mean=  -2056.0 rms=  28364.8 (0.3381% FS) zeros=  0 flat=  1
+ 28.12  raw fec68600 fec6c600 fed09400 fec5d000 | n=512 bytes=2048 | min=   -96374 max=    25084 mean= -34856.3 rms=  42402.3 (0.5055% FS) zeros=  0 flat=  1
+ 28.34  raw febc8200 feb03c00 fe889400 fe6eae00 | n=512 bytes=2048 | min=  -108126 max=    49632 mean= -20517.7 rms=  43840.7 (0.5226% FS) zeros=  0 flat=  1
+ 28.56  raw 0053de00 0055f400 00500200 00407a00 | n=512 bytes=2048 | min=   -88868 max=    58038 mean=  -8108.3 rms=  35382.2 (0.4218% FS) zeros=  0 flat=  1
+ 28.89  raw fde80e00 fe016800 fe101800 fe151e00 | n=512 bytes=2048 | min=  -250834 max=   -57820 mean=-157047.0 rms= 164511.1 (1.9611% FS) zeros=  0 flat=  1
+ 29.11  raw ffd14400 ffc68400 ffcd7a00 ffcf4c00 | n=512 bytes=2048 | min=   -27668 max=    84362 mean=  30049.6 rms=  37823.6 (0.4509% FS) zeros=  0 flat=  1
+ 29.33  raw 01470600 014bfe00 014a7c00 014b9800 | n=512 bytes=2048 | min=    20086 max=   163176 mean=  82215.4 rms=  86678.7 (1.0333% FS) zeros=  0 flat=  1
+ 29.65  raw feade200 feb4d600 fea64000 fe9d9400 | n=512 bytes=2048 | min=  -109358 max=    50132 mean= -40780.0 rms=  51925.4 (0.6190% FS) zeros=  0 flat=  1
+ 29.88  raw fd012800 fcf21800 fceb0800 fcfd8800 | n=512 bytes=2048 | min=  -267052 max=  -118842 mean=-197878.2 rms= 200386.0 (2.3888% FS) zeros=  0 flat=  1
+ 30.10  raw 032b6000 0347c200 03422a00 03354c00 | n=512 bytes=2048 | min=   118842 max=   251126 mean= 201603.4 rms= 203961.4 (2.4314% FS) zeros=  0 flat=  1
+ 30.43  raw 011e1800 01223e00 01233800 012e1400 | n=512 bytes=2048 | min=   -50786 max=   105554 mean=  19293.3 rms=  40297.2 (0.4804% FS) zeros=  0 flat=  1
+ 30.65  raw ffbf2400 ff94a000 ff773000 ff796800 | n=512 bytes=2048 | min=  -104152 max=    75252 mean=   2564.2 rms=  44108.1 (0.5258% FS) zeros=  0 flat=  1
+ 30.86  raw fd4bd800 fd2c3000 fd085800 fcf79800 | n=512 bytes=2048 | min=  -276878 max=  -123684 mean=-196419.8 rms= 198533.6 (2.3667% FS) zeros=  0 flat=  1
+ 31.08  raw 02e71800 03053200 03058600 02fea200 | n=512 bytes=2048 | min=   114438 max=   291150 mean= 208828.4 rms= 213079.6 (2.5401% FS) zeros=  0 flat=  1
+ 31.42  raw 01942600 019ab200 0188fe00 0175f400 | n=512 bytes=2048 | min=   -10378 max=   132180 mean=  59460.1 rms=  69022.7 (0.8228% FS) zeros=  0 flat=  1
+ 31.63  raw ff473800 ff5b8a00 ff7e5600 ff896c00 | n=512 bytes=2048 | min=   -80196 max=    34052 mean= -20267.7 rms=  34874.1 (0.4157% FS) zeros=  0 flat=  1
+ 31.85  raw ff04f600 ff095400 ff073a00 ff0c9200 | n=512 bytes=2048 | min=  -133384 max=    64776 mean= -51065.2 rms=  65518.6 (0.7810% FS) zeros=  0 flat=  1
+ 32.18  raw fbdcc400 fbb7a400 fba1fc00 fb8b0000 | n=512 bytes=2048 | min=  -460948 max=  -265174 mean=-376510.4 rms= 379475.1 (4.5237% FS) zeros=  0 flat=  1
+ 32.40  raw f5dde400 f5c0f400 f5b9f600 f5b60200 | n=512 bytes=2048 | min=  -679568 max=  -386246 mean=-546989.2 rms= 551035.3 (6.5689% FS) zeros=  0 flat=  1
+ 32.62  raw 135a0a00 134b9e00 1331d400 1329a200 | n=512 bytes=2048 | min=  1107548 max=  1346994 mean=1225722.8 rms=1226722.3 (14.6237% FS) zeros=  0 flat=  1
+ 32.84  raw 018c8600 018c1200 019da400 0196ac00 | n=512 bytes=2048 | min=   -21538 max=   122168 mean=  31940.3 rms=  45169.6 (0.5385% FS) zeros=  0 flat=  1
+ 33.16  raw fc8f3600 fc886200 fc8f9c00 fc9e1200 | n=512 bytes=2048 | min=  -315906 max=  -166854 mean=-233239.3 rms= 234974.5 (2.8011% FS) zeros=  0 flat=  1
+ 33.38  raw fbeb4c00 fbcd1600 fbbd0e00 fbadf600 | n=512 bytes=2048 | min=  -375474 max=  -218034 mean=-302664.6 rms= 304082.7 (3.6249% FS) zeros=  0 flat=  1
+ 33.60  raw 0303c400 0322d400 03174200 03179400 | n=512 bytes=2048 | min=   105840 max=   234498 mean= 184263.1 rms= 186588.4 (2.2243% FS) zeros=  0 flat=  1
+ 33.93  raw ffbe3000 ffda3a00 ffeb6e00 ffc77800 | n=512 bytes=2048 | min=   -93568 max=    47698 mean= -18373.8 rms=  37023.1 (0.4414% FS) zeros=  0 flat=  1
+ 34.15  raw fcdf5600 fcf0a600 fd109800 fcf53600 | n=512 bytes=2048 | min=  -248020 max=   -69792 mean=-158577.9 rms= 162006.5 (1.9313% FS) zeros=  0 flat=  1
+ 34.37  raw 03d75000 03e75c00 03d86400 03dc6c00 | n=512 bytes=2048 | min=    98356 max=   280650 mean= 197520.8 rms= 202031.7 (2.4084% FS) zeros=  0 flat=  1
+ 34.70  raw 008b1200 0094a000 006f9000 00548e00 | n=512 bytes=2048 | min=   -35814 max=   114022 mean=  23592.5 rms=  41158.6 (0.4906% FS) zeros=  0 flat=  1
+ 34.91  raw ffb5d800 ffe46400 fffcd000 fff05c00 | n=512 bytes=2048 | min=   -98460 max=    63352 mean= -14777.9 rms=  39902.9 (0.4757% FS) zeros=  0 flat=  1
+ 35.13  raw fd159000 fd058400 fcf87600 fce90800 | n=512 bytes=2048 | min=  -263396 max=  -103612 mean=-184122.0 rms= 186951.2 (2.2286% FS) zeros=  0 flat=  1
+ 35.35  raw 03231a00 0325d600 03248c00 03312a00 | n=512 bytes=2048 | min=    96558 max=   281678 mean= 187575.1 rms= 192322.5 (2.2927% FS) zeros=  0 flat=  1
+ 35.68  raw 0058f200 004c7600 00534c00 00714800 | n=512 bytes=2048 | min=   -61010 max=   138212 mean=  15582.3 rms=  44115.4 (0.5259% FS) zeros=  0 flat=  1
+ 35.90  raw fe011600 fe082600 fdfc0c00 fdc2f600 | n=512 bytes=2048 | min=  -241342 max=   -84058 mean=-156515.6 rms= 159891.1 (1.9061% FS) zeros=  0 flat=  1
+ 36.12  raw ffb4fc00 ffa52400 ff96be00 ff824600 | n=512 bytes=2048 | min=   -39776 max=   123750 mean=  48120.9 rms=  59813.8 (0.7130% FS) zeros=  0 flat=  1
+ 36.44  raw 020a9800 020d2400 01f34e00 01ac5e00 | n=512 bytes=2048 | min=   -59450 max=   153410 mean=  63245.9 rms=  80383.7 (0.9582% FS) zeros=  0 flat=  1
+ 36.66  raw ff56aa00 ff6b1000 ff8bd800 ff9a1600 | n=512 bytes=2048 | min=  -100250 max=    43438 mean= -17129.8 rms=  32840.3 (0.3915% FS) zeros=  0 flat=  1
+ 36.88  raw fe53b600 fe511800 fe540a00 fe615400 | n=512 bytes=2048 | min=  -209150 max=   -62396 mean=-138291.5 rms= 143202.5 (1.7071% FS) zeros=  0 flat=  1
+ 37.10  raw 00a13000 0098c800 008aa200 00781a00 | n=512 bytes=2048 | min=     1376 max=   184532 mean=  88437.7 rms=  98633.2 (1.1758% FS) zeros=  0 flat=  1
+ 37.42  raw 01695e00 0166a800 01543000 01286200 | n=512 bytes=2048 | min=     1472 max=   181626 mean=  82502.7 rms=  89996.8 (1.0728% FS) zeros=  0 flat=  1
+ 37.64  raw 00b13800 00a5ce00 00a29800 00a20800 | n=512 bytes=2048 | min=   -38586 max=    99700 mean=  14007.8 rms=  30188.0 (0.3599% FS) zeros=  0 flat=  1
+ 37.85  raw ffb93e00 ffca6600 ffb56200 ff867600 | n=512 bytes=2048 | min=  -106422 max=    58952 mean= -22787.1 rms=  34665.8 (0.4132% FS) zeros=  0 flat=  1
+ 38.18  raw 0043c200 004f2000 00475000 00306400 | n=512 bytes=2048 | min=   -53004 max=    71680 mean=  14203.1 rms=  27529.9 (0.3282% FS) zeros=  0 flat=  1
+ 38.40  raw 00351c00 00342e00 00531c00 006c7a00 | n=512 bytes=2048 | min=   -79974 max=    67538 mean=     22.7 rms=  32341.4 (0.3855% FS) zeros=  1 flat=  1
+ 38.62  raw fe757a00 fe82d000 fe934400 fea30800 | n=512 bytes=2048 | min=  -119318 max=    67156 mean= -28198.5 rms=  54840.9 (0.6538% FS) zeros=  0 flat=  1
+ 38.95  raw fcb5ce00 fca7aa00 fcb9f800 fcc22a00 | n=512 bytes=2048 | min=  -287962 max=  -191050 mean=-232562.1 rms= 233147.9 (2.7793% FS) zeros=  0 flat=  1
+ 39.17  raw fea37c00 fec25800 feab1400 fe9ed600 | n=512 bytes=2048 | min=   -94892 max=    85528 mean=  13421.8 rms=  36692.8 (0.4374% FS) zeros=  0 flat=  1
+ 39.39  raw 02433a00 024a7000 02624800 026fba00 | n=512 bytes=2048 | min=    77290 max=   200278 mean= 133452.1 rms= 136257.4 (1.6243% FS) zeros=  0 flat=  1
+ 39.72  raw 009ea000 00b89000 00ab8e00 009ce600 | n=512 bytes=2048 | min=  -105526 max=    48150 mean= -29803.2 rms=  46385.0 (0.5530% FS) zeros=  0 flat=  1
+ 39.93  raw fd00ce00 fcf69a00 fcec1000 fcf69000 | n=512 bytes=2048 | min=  -201712 max=   -33362 mean=-102623.5 rms= 111394.8 (1.3279% FS) zeros=  0 flat=  1
+ 40.15  raw fee39400 fec46200 fe988600 fe751200 | n=512 bytes=2048 | min=  -110020 max=    38708 mean= -35366.4 rms=  51597.9 (0.6151% FS) zeros=  0 flat=  1
+ 40.37  raw 040ec400 04134600 04175400 041f7000 | n=512 bytes=2048 | min=   239766 max=   357686 mean= 317031.9 rms= 318380.1 (3.7954% FS) zeros=  0 flat=  1
+ 40.70  raw 05ef6800 05e0de00 05cea000 05b83000 | n=512 bytes=2048 | min=   243226 max=   388968 mean= 294356.4 rms= 296039.2 (3.5291% FS) zeros=  0 flat=  1
+ 40.92  raw 005cfa00 006eda00 0076ec00 0079f400 | n=512 bytes=2048 | min=   -87644 max=    34296 mean= -24656.7 rms=  38059.7 (0.4537% FS) zeros=  0 flat=  1
+ 41.14  raw fea1b600 fea0ba00 fea18c00 fea73a00 | n=512 bytes=2048 | min=  -173114 max=   -55982 mean=-111533.7 rms= 115084.6 (1.3719% FS) zeros=  0 flat=  1
+ 41.47  raw fe07e000 fde80400 fdca3400 fdc98800 | n=512 bytes=2048 | min=  -146200 max=   -19914 mean= -85262.3 rms=  88410.0 (1.0539% FS) zeros=  0 flat=  1
+ 41.69  raw fa43a600 fa44c600 fa579600 fa6b6800 | n=512 bytes=2048 | min=  -418084 max=  -274482 mean=-340281.0 rms= 341335.4 (4.0690% FS) zeros=  0 flat=  1
+ 41.90  raw 037df200 03866c00 03746a00 03685400 | n=512 bytes=2048 | min=   164724 max=   288848 mean= 231600.6 rms= 233131.8 (2.7791% FS) zeros=  0 flat=  1
+ 42.12  raw fb36a800 fb2dea00 fb218600 fb17bc00 | n=512 bytes=2048 | min=  -323516 max=  -196166 mean=-266704.2 rms= 268001.9 (3.1948% FS) zeros=  0 flat=  1
+ 42.45  raw 014b9e00 013e3000 012e1a00 0125e200 | n=512 bytes=2048 | min=     8994 max=   114254 mean=  71425.0 rms=  74761.0 (0.8912% FS) zeros=  0 flat=  1
+ 42.89  raw 02496800 0238c800 02393600 0235ac00 | n=512 bytes=2048 | min=   113766 max=   238700 mean= 185289.7 rms= 187800.7 (2.2388% FS) zeros=  0 flat=  1
+ 42.89  raw 017dea00 01843e00 019ebe00 01c04400 | n=512 bytes=2048 | min=    93098 max=   261908 mean= 170167.4 rms= 173976.2 (2.0740% FS) zeros=  0 flat=  1
+ 43.22  raw ff10bc00 ff06a400 ff155a00 ff1d3800 | n=512 bytes=2048 | min=  -119816 max=    -8484 mean= -70975.4 rms=  74845.0 (0.8922% FS) zeros=  0 flat=  1
+ 43.43  raw fccd3000 fcd7cc00 fcdd0c00 fcda5c00 | n=512 bytes=2048 | min=  -320914 max=   -94240 mean=-215232.9 rms= 222500.8 (2.6524% FS) zeros=  0 flat=  1
+ 43.65  raw ffbcb600 ffbf0600 ffe7fa00 001ec400 | n=512 bytes=2048 | min=   -94102 max=    84088 mean= -14790.1 rms=  43791.3 (0.5220% FS) zeros=  0 flat=  1
+ 43.98  raw 025a0600 0269b800 02704e00 026eaa00 | n=512 bytes=2048 | min=   142752 max=   319268 mean= 240482.7 rms= 245063.0 (2.9214% FS) zeros=  0 flat=  1
+ 44.20  raw 00b1e800 00affa00 00c9f200 00ee9e00 | n=512 bytes=2048 | min=   -23370 max=   131040 mean=  52532.3 rms=  59624.8 (0.7108% FS) zeros=  0 flat=  1
+ 44.42  raw fe3c1c00 fe434c00 fe410800 fe2f6c00 | n=512 bytes=2048 | min=  -263762 max=   -14086 mean=-128638.3 rms= 143872.2 (1.7151% FS) zeros=  0 flat=  1
+ 44.64  raw ff1bce00 ff3d1a00 ff593e00 ff666c00 | n=512 bytes=2048 | min=  -167798 max=    24026 mean= -55495.2 rms=  68103.0 (0.8119% FS) zeros=  0 flat=  1
+ 44.97  raw 03dd1200 03c37c00 03b18600 039aa600 | n=512 bytes=2048 | min=    25534 max=   311906 mean= 161446.9 rms= 178173.4 (2.1240% FS) zeros=  0 flat=  1
+ 45.18  raw 0196f200 018c4200 018a1c00 018dc600 | n=512 bytes=2048 | min=   -97068 max=   125636 mean=  11047.5 rms=  54769.0 (0.6529% FS) zeros=  0 flat=  1
+ 45.40  raw ff8f7800 ff84ca00 ff745000 ff684600 | n=512 bytes=2048 | min=  -177406 max=    93688 mean= -52066.9 rms=  85747.5 (1.0222% FS) zeros=  0 flat=  1
+ 45.73  raw ff076a00 ff107a00 ff13e800 ff057c00 | n=512 bytes=2048 | min=  -124048 max=    71934 mean= -31412.8 rms=  54818.7 (0.6535% FS) zeros=  0 flat=  1
+ 45.95  raw fdc67200 fde1cc00 fdf69200 fe067400 | n=512 bytes=2048 | min=  -281490 max=    23364 mean=-124862.8 rms= 149541.7 (1.7827% FS) zeros=  0 flat=  1
+ 46.17  raw 01011400 00ea1a00 00e04800 00e02000 | n=512 bytes=2048 | min=  -132724 max=   175708 mean=  55385.9 rms=  83289.5 (0.9929% FS) zeros=  0 flat=  1
+ 46.49  raw 00ae5200 00aa4600 009ddc00 007c7400 | n=512 bytes=2048 | min=  -155044 max=    67050 mean= -31685.1 rms=  57254.6 (0.6825% FS) zeros=  0 flat=  1
+ 46.71  raw ff47c600 ff286600 ff1a3c00 ff077800 | n=512 bytes=2048 | min=  -109562 max=    30944 mean= -45377.2 rms=  52760.4 (0.6290% FS) zeros=  0 flat=  1
+ 46.93  raw 03cb3c00 03a65000 0381ca00 0372ee00 | n=512 bytes=2048 | min=   118222 max=   272370 mean= 189708.2 rms= 193524.9 (2.3070% FS) zeros=  0 flat=  1
+ 47.15  raw 00674600 0072d800 00773600 006d0800 | n=512 bytes=2048 | min=   -71934 max=   156796 mean=  34187.3 rms=  59690.6 (0.7116% FS) zeros=  0 flat=  1
+ 47.48  raw 00325c00 0045b200 0049fc00 00542400 | n=512 bytes=2048 | min=   -73692 max=    92748 mean=   1058.2 rms=  41914.6 (0.4997% FS) zeros=  0 flat=  1
+ 47.69  raw ffd95a00 ffd19200 ffcfb400 ffc3b600 | n=512 bytes=2048 | min=   -15434 max=   139622 mean=  58480.1 rms=  66898.4 (0.7975% FS) zeros=  0 flat=  1
+ 47.92  raw 00442800 00439400 004e6c00 00647a00 | n=512 bytes=2048 | min=   -60600 max=   162394 mean=  74204.5 rms=  92031.0 (1.0971% FS) zeros=  0 flat=  1
+ 48.25  raw ffc07000 ffacd800 ff8e9600 ff6bc600 | n=512 bytes=2048 | min=  -166926 max=    38148 mean= -56219.7 rms=  74617.1 (0.8895% FS) zeros=  0 flat=  1
+ 48.46  raw fced5a00 fce5a000 fcfd7200 fd0d1600 | n=512 bytes=2048 | min=  -304394 max=  -164110 mean=-228677.1 rms= 230543.6 (2.7483% FS) zeros=  0 flat=  1
+ 48.68  raw ff2e0800 ff2ab800 ff193800 ff0aaa00 | n=512 bytes=2048 | min=   -89914 max=   111682 mean=   4079.8 rms=  50191.7 (0.5983% FS) zeros=  0 flat=  1
+ 48.90  raw 017c1e00 015c8600 017b0800 017e2200 | n=512 bytes=2048 | min=   -21870 max=   148164 mean=  61999.4 rms=  72413.2 (0.8632% FS) zeros=  0 flat=  1
+ 49.23  raw fdca4e00 fdc37000 fdb2aa00 fda78800 | n=512 bytes=2048 | min=  -225230 max=  -107308 mean=-168297.9 rms= 170249.9 (2.0295% FS) zeros=  0 flat=  1
+ 49.44  raw 0383a000 03795400 0372a600 036c3a00 | n=512 bytes=2048 | min=   138958 max=   248436 mean= 186896.1 rms= 188675.2 (2.2492% FS) zeros=  0 flat=  1
+ 49.66  raw 006cb600 006afc00 005d1000 005e5400 | n=512 bytes=2048 | min=   -59752 max=    74974 mean=   1251.7 rms=  31150.4 (0.3713% FS) zeros=  0 flat=  1
+ 49.99  raw ffc0c000 ffce6c00 ffd85800 ffecd800 | n=512 bytes=2048 | min=   -16192 max=   139200 mean=  65512.2 rms=  75488.1 (0.8999% FS) zeros=  0 flat=  1
