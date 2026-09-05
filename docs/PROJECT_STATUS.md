@@ -8,7 +8,7 @@ Last updated: 2026-09-05
 **PHASE 1 — wiring verification: COMPLETE (EXP-001, PASS)**
 **PHASE 2-3 — I2S capture: PASS (EXP-002B speech confirmed)**
 **PHASE 4-5 — PCM transfer + signal analysis: PASS (EXP-003)**
-**PHASE 6 — preprocessing: PARTIAL (EXP-004). Broadband RMS proven to be the wrong detector.**
+**PHASE 6 — preprocessing: COMPLETE (EXP-005). Band-limited detector passes on every word.**
 
 **MILESTONE 01 reached: the audio capture path is fully validated** (see
 `experiments/MILESTONE-01-audio-capture-validated.md`) — sample rate measured, bit
@@ -63,10 +63,10 @@ Measured on-device and read from installed packages — see `experiments/EXP-000
 
 ## Next experiment
 
-**EXP-005 — band-limited (300-3400 Hz) energy detector.** EXP-004 showed the speech
-band goes from 1.4% to 43.8% occupancy during speech while broadband RMS stays stuck at
-9.6x. Measure in the band where the signal actually is. This is the on-ramp to the
-Phase 7 Mel/MFCC feature pipeline.
+**EXP-006 — Phase 7 feature extraction: framing, windowing, FFT, Mel filterbank.**
+EXP-005 showed band-limited energy improves the PEAK by only 1.39x over wideband and
+leaves p90/mean unchanged — a scalar detector cannot tell a keyword from a door slam.
+Feature *vectors* describing spectral shape are required.
 
 ## Explicitly NOT done yet
 
