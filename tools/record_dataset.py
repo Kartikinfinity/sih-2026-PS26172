@@ -22,9 +22,12 @@ import time
 import wave
 
 import numpy as np
-import serial
-import serial.tools.list_ports
 from scipy.signal import butter, sosfiltfilt
+
+# pyserial is imported lazily inside open_stream(). The segmentation functions
+# here are reused by build_continuous.py and eval_streaming.py, which run in the
+# TensorFlow environment on D: where pyserial is not installed -- and which have
+# no business requiring a serial library to slice a WAV file.
 
 PORT = "COM5"
 BAUD = 921600
@@ -70,6 +73,8 @@ MIN_SNR = 6.0            # p99/p20 envelope ratio below this means segmentation
 
 def open_stream():
     """Reset the board and return a serial handle positioned at the raw stream."""
+    import serial
+    import serial.tools.list_ports
     s = serial.Serial(PORT, BAUD, timeout=0.1)
     s.setDTR(False)
     s.setRTS(True)
@@ -109,6 +114,7 @@ def open_stream():
 
 
 def record(ser, leftover, seconds):
+    """Read `seconds` of raw int16 from an open stream."""
     need = int(FS * seconds) * 2
     buf = bytearray(leftover)
     t0 = time.time()
