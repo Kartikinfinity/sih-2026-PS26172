@@ -10,6 +10,17 @@ Last updated: 2026-09-05
 **PHASE 4-5 — PCM transfer + signal analysis: PASS (EXP-003)**
 **PHASE 6 — preprocessing: COMPLETE (EXP-005)**
 **PHASE 7 — feature extraction: COMPLETE (EXP-006). Host/device parity verified.**
+**PHASE 8-9 — keyword decision + dataset collection: COMPLETE**
+
+Dataset (single speaker, see DECISION-02 for the speaker-independence risk):
+
+| Class | Count | Conditions |
+|---|---|---|
+| Positives "Sentinel" | 176 | baseline 24, close 42, far 41, soft 34, fast 35 |
+| Hard negatives | 105 | sentimental, essential, central, signal, single, sending, seven, sensor, sentence, settle, censor, cinnamon, centre, certain, standard, special |
+| Background noise | 90 s | one source, 86.9% of energy below 100 Hz |
+| Rejected (auditable) | 23 | 7 partial, 1 degenerate, 15 low-SNR |
+
 
 **MILESTONE 01 reached: the audio capture path is fully validated** (see
 `experiments/MILESTONE-01-audio-capture-validated.md`) — sample rate measured, bit

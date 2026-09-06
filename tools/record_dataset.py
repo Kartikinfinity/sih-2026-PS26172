@@ -57,6 +57,13 @@ MIN_MARGIN_S = 0.05      # QC: fail the run if a word sits closer than this to a
 # real utterances across five sessions span 0.57-1.47 s.
 PLAUSIBLE_MIN_S = 0.45
 PLAUSIBLE_MAX_S = 1.60
+
+# Truncation is asymmetric between classes. A truncated POSITIVE corrupts its
+# label -- it teaches the model that a partial sound is the keyword. A truncated
+# NEGATIVE is still a valid negative: a syllable fragment genuinely is not the
+# keyword, and fragments of speech are exactly what a deployed device hears. So
+# negatives get a lower plausibility floor rather than being discarded.
+PLAUSIBLE_MIN_NEG_S = 0.20
 MIN_SNR = 6.0            # p99/p20 envelope ratio below this means segmentation
                          # cannot work; record clean speech and noise separately
 
@@ -250,14 +257,15 @@ def finish(x, label, outdir):
         print("tail margin : min %.3f  median %.3f s" % (m[:, 1].min(), np.median(m[:, 1])))
         # Plausibility, not just margins. A margin test alone passes happily on
         # 0.13 s noise fragments, which is exactly how session 6 slipped through.
-        implausible = int(np.sum((durs < PLAUSIBLE_MIN_S) | (durs > PLAUSIBLE_MAX_S)))
+        lo_bound = PLAUSIBLE_MIN_NEG_S if "neg" in label.lower() else PLAUSIBLE_MIN_S
+        implausible = int(np.sum((durs < lo_bound) | (durs > PLAUSIBLE_MAX_S)))
         fails = []
         if tight:
             fails.append("%d/%d clips under %.0f ms margin" % (tight, kept, MIN_MARGIN_S * 1000))
         if implausible:
             fails.append("%d/%d detections outside the plausible %.2f-%.2f s word length"
-                         % (implausible, kept, PLAUSIBLE_MIN_S, PLAUSIBLE_MAX_S))
-        if np.median(durs) < PLAUSIBLE_MIN_S:
+                         % (implausible, kept, lo_bound, PLAUSIBLE_MAX_S))
+        if np.median(durs) < lo_bound:
             fails.append("median detection %.2f s is not a word" % np.median(durs))
         if fails:
             print("QC: FAIL -- " + "; ".join(fails))
