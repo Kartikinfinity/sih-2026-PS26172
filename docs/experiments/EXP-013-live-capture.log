@@ -1,0 +1,195 @@
+  1.01  
+  1.01  ================================================================
+  1.01   EXP-010  ON-DEVICE KEYWORD SPOTTING (streaming features + int8)
+  1.01    49 frames x 40 mel | inference every 100 ms | threshold 0.90
+  1.01  ================================================================
+  1.01  [ MODEL ] 24536 bytes | arena used 15460 of 49152 | heap free 168056
+  3.03  [ PROFILE ] one inference, per-operator breakdown:
+  3.03  kw 0.983  unk 0.002  sil 0.014  -> keyword | feat 0.00 ms  infer 84.30 ms  cpu 42.2%   *** SENTINEL ***
+  3.03  [ PROFILE ] total 85.25 ms, profiler ticks 0
+  3.03  [ LISTENING ] say the keyword
+  4.03  kw 0.805  unk 0.166  sil 0.029  -> keyword | feat 1.17 ms  infer 84.17 ms  cpu 47.9%
+  4.03  kw 0.946  unk 0.044  sil 0.010  -> keyword | feat 1.17 ms  infer 84.13 ms  cpu 47.9%   *** SENTINEL ***
+  4.03  kw 0.958  unk 0.023  sil 0.019  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 47.9%   *** SENTINEL ***
+  4.03  kw 0.997  unk 0.002  sil 0.001  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%   *** SENTINEL ***
+  5.05  kw 0.975  unk 0.014  sil 0.011  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 47.9%   *** SENTINEL ***
+  5.05  kw 0.977  unk 0.010  sil 0.013  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 47.9%   *** SENTINEL ***
+  5.05  kw 0.872  unk 0.066  sil 0.061  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+  5.05  kw 0.696  unk 0.103  sil 0.200  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+  5.05  kw 0.831  unk 0.134  sil 0.035  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  6.06  kw 0.900  unk 0.088  sil 0.012  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  6.06  kw 0.992  unk 0.007  sil 0.001  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+  6.06  kw 0.991  unk 0.008  sil 0.001  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 47.9%   *** SENTINEL ***
+  6.06  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%   *** SENTINEL ***
+  6.06  kw 0.985  unk 0.012  sil 0.003  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+  7.07  kw 0.984  unk 0.009  sil 0.007  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%   *** SENTINEL ***
+  7.07  kw 0.733  unk 0.139  sil 0.128  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  7.07  kw 0.209  unk 0.269  sil 0.522  -> silence | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  7.07  kw 0.489  unk 0.130  sil 0.381  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  7.07  kw 0.775  unk 0.089  sil 0.136  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  8.08  kw 0.937  unk 0.029  sil 0.034  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+  8.08  kw 0.566  unk 0.117  sil 0.317  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  8.08  kw 0.571  unk 0.051  sil 0.377  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  8.08  kw 0.025  unk 0.012  sil 0.963  -> silence | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  8.08  kw 0.011  unk 0.008  sil 0.981  -> silence | feat 1.18 ms  infer 84.13 ms  cpu 47.9%
+  9.09  kw 0.021  unk 0.007  sil 0.971  -> silence | feat 1.18 ms  infer 84.12 ms  cpu 47.9%
+  9.09  kw 0.133  unk 0.042  sil 0.826  -> silence | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+  9.09  kw 0.786  unk 0.065  sil 0.149  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  9.09  kw 0.971  unk 0.018  sil 0.011  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 47.9%   *** SENTINEL ***
+  9.09  kw 0.999  unk 0.001  sil 0.000  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%   *** SENTINEL ***
+ 10.10  kw 0.999  unk 0.001  sil 0.000  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 10.10  kw 0.999  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 10.10  kw 0.999  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 10.10  kw 0.996  unk 0.002  sil 0.002  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 10.10  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 11.11  kw 0.999  unk 0.000  sil 0.001  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 11.11  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 11.11  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.15 ms  cpu 48.0%   *** SENTINEL ***
+ 11.11  kw 0.998  unk 0.001  sil 0.000  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 11.11  kw 0.984  unk 0.013  sil 0.003  -> keyword | feat 1.18 ms  infer 84.17 ms  cpu 48.0%   *** SENTINEL ***
+ 12.12  kw 0.984  unk 0.015  sil 0.001  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 12.12  kw 0.992  unk 0.007  sil 0.001  -> keyword | feat 1.18 ms  infer 84.15 ms  cpu 48.0%   *** SENTINEL ***
+ 12.12  kw 0.997  unk 0.002  sil 0.000  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 12.12  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 12.12  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.15 ms  cpu 48.0%   *** SENTINEL ***
+ 13.13  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 13.13  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 13.13  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.15 ms  cpu 48.0%   *** SENTINEL ***
+ 13.13  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.15 ms  cpu 48.0%   *** SENTINEL ***
+ 14.14  kw 0.999  unk 0.000  sil 0.001  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 14.14  kw 0.999  unk 0.000  sil 0.001  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%   *** SENTINEL ***
+ 14.14  kw 0.999  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 14.14  kw 1.000  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 14.14  kw 0.978  unk 0.020  sil 0.002  -> keyword | feat 1.18 ms  infer 84.15 ms  cpu 48.0%   *** SENTINEL ***
+ 14.14  kw 0.972  unk 0.027  sil 0.000  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 15.15  kw 0.009  unk 0.991  sil 0.000  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 15.15  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 15.15  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 15.15  kw 0.004  unk 0.996  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 15.15  kw 0.011  unk 0.988  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 16.16  kw 0.357  unk 0.638  sil 0.005  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 16.16  kw 0.571  unk 0.377  sil 0.051  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 16.16  kw 0.915  unk 0.054  sil 0.030  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 16.16  kw 0.372  unk 0.613  sil 0.015  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 16.16  kw 0.701  unk 0.281  sil 0.018  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 17.16  kw 0.018  unk 0.981  sil 0.001  -> unknown | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 17.16  kw 0.002  unk 0.998  sil 0.000  -> unknown | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 17.16  kw 0.006  unk 0.994  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 17.16  kw 0.017  unk 0.980  sil 0.003  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 17.16  kw 0.007  unk 0.977  sil 0.015  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 18.17  kw 0.061  unk 0.528  sil 0.411  -> unknown | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 18.17  kw 0.052  unk 0.212  sil 0.736  -> silence | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 18.17  kw 0.199  unk 0.585  sil 0.216  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 18.17  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 18.17  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 19.18  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 19.18  kw 0.004  unk 0.996  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 19.18  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 19.18  kw 0.001  unk 0.999  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 19.18  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 20.18  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 20.18  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 20.18  kw 0.002  unk 0.998  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 20.18  kw 0.004  unk 0.995  sil 0.001  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 20.18  kw 0.005  unk 0.994  sil 0.001  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 21.19  kw 0.001  unk 0.999  sil 0.000  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 21.19  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 21.19  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 21.19  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 21.19  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 22.19  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 22.19  kw 0.003  unk 0.997  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 22.19  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 22.19  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 22.19  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 23.21  kw 0.002  unk 0.996  sil 0.002  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 23.21  kw 0.020  unk 0.933  sil 0.047  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 23.21  kw 0.113  unk 0.123  sil 0.764  -> silence | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 23.21  kw 0.368  unk 0.264  sil 0.368  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 23.21  kw 0.002  unk 0.998  sil 0.000  -> unknown | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 23.21  kw 0.001  unk 0.999  sil 0.000  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 24.21  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 24.21  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 24.21  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 24.21  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 24.21  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 25.21  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 25.21  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 25.21  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 25.21  kw 0.010  unk 0.990  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 25.21  kw 0.056  unk 0.943  sil 0.001  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 26.22  kw 0.970  unk 0.030  sil 0.001  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 26.22  kw 0.979  unk 0.018  sil 0.003  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 26.22  kw 0.999  unk 0.001  sil 0.000  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 26.22  kw 0.996  unk 0.004  sil 0.000  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 26.22  kw 0.917  unk 0.083  sil 0.001  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 27.23  kw 0.839  unk 0.159  sil 0.001  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 27.23  kw 0.619  unk 0.376  sil 0.004  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 27.23  kw 0.128  unk 0.866  sil 0.005  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 27.23  kw 0.120  unk 0.877  sil 0.003  -> unknown | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 27.23  kw 0.003  unk 0.997  sil 0.000  -> unknown | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 28.24  kw 0.025  unk 0.974  sil 0.000  -> unknown | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 28.24  kw 0.171  unk 0.828  sil 0.001  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 28.24  kw 0.089  unk 0.911  sil 0.000  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 28.24  kw 0.171  unk 0.829  sil 0.000  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 28.24  kw 0.020  unk 0.980  sil 0.000  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 29.24  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 29.24  kw 0.000  unk 1.000  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 29.24  kw 0.002  unk 0.998  sil 0.000  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 29.24  kw 0.303  unk 0.695  sil 0.002  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 29.24  kw 0.802  unk 0.196  sil 0.002  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 30.25  kw 0.996  unk 0.004  sil 0.000  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%   *** SENTINEL ***
+ 30.25  kw 0.992  unk 0.006  sil 0.002  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 30.25  kw 0.991  unk 0.006  sil 0.003  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 30.25  kw 0.810  unk 0.167  sil 0.023  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 30.25  kw 0.561  unk 0.341  sil 0.098  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 31.25  kw 0.902  unk 0.088  sil 0.010  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%   *** SENTINEL ***
+ 31.25  kw 0.631  unk 0.353  sil 0.016  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 31.25  kw 0.706  unk 0.283  sil 0.010  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 31.25  kw 0.873  unk 0.110  sil 0.018  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 32.26  kw 0.777  unk 0.189  sil 0.033  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 32.26  kw 0.937  unk 0.034  sil 0.029  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 32.26  kw 0.552  unk 0.431  sil 0.017  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 32.26  kw 0.253  unk 0.745  sil 0.002  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 32.26  kw 0.030  unk 0.970  sil 0.000  -> unknown | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 32.26  kw 0.223  unk 0.776  sil 0.001  -> unknown | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 33.27  kw 0.005  unk 0.995  sil 0.000  -> unknown | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 33.27  kw 0.729  unk 0.269  sil 0.002  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 33.27  kw 0.582  unk 0.417  sil 0.001  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 33.27  kw 0.321  unk 0.678  sil 0.001  -> unknown | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 33.27  kw 0.894  unk 0.103  sil 0.002  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 34.27  kw 0.955  unk 0.044  sil 0.000  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 34.27  kw 0.129  unk 0.870  sil 0.001  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 34.27  kw 0.828  unk 0.171  sil 0.001  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 34.27  kw 0.018  unk 0.982  sil 0.000  -> unknown | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 35.28  kw 0.828  unk 0.171  sil 0.001  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 35.28  kw 0.774  unk 0.223  sil 0.003  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 35.28  kw 0.938  unk 0.056  sil 0.006  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 35.28  kw 0.952  unk 0.044  sil 0.004  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 35.28  kw 0.947  unk 0.048  sil 0.006  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 35.28  kw 0.250  unk 0.737  sil 0.013  -> unknown | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 36.28  kw 0.978  unk 0.020  sil 0.002  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 36.28  kw 0.580  unk 0.416  sil 0.004  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 36.28  kw 0.983  unk 0.014  sil 0.003  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 36.28  kw 0.962  unk 0.035  sil 0.003  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 36.28  kw 0.850  unk 0.137  sil 0.013  -> keyword | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 37.28  kw 0.716  unk 0.264  sil 0.020  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 37.28  kw 0.989  unk 0.010  sil 0.001  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 37.28  kw 0.999  unk 0.000  sil 0.000  -> keyword | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 37.28  kw 0.996  unk 0.002  sil 0.002  -> keyword | feat 1.18 ms  infer 84.16 ms  cpu 48.0%   *** SENTINEL ***
+ 37.28  kw 0.997  unk 0.002  sil 0.001  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 38.30  kw 0.958  unk 0.021  sil 0.021  -> keyword | feat 1.18 ms  infer 84.12 ms  cpu 48.0%   *** SENTINEL ***
+ 38.30  kw 0.612  unk 0.098  sil 0.290  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 38.30  kw 0.429  unk 0.105  sil 0.466  -> silence | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 38.30  kw 0.365  unk 0.204  sil 0.431  -> silence | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 38.30  kw 0.387  unk 0.155  sil 0.457  -> silence | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 39.31  kw 0.808  unk 0.120  sil 0.073  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 39.31  kw 0.793  unk 0.099  sil 0.108  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 39.31  kw 0.959  unk 0.025  sil 0.016  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 39.31  kw 0.976  unk 0.013  sil 0.011  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 39.31  kw 0.872  unk 0.066  sil 0.061  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 40.31  kw 0.741  unk 0.093  sil 0.166  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 40.31  kw 0.842  unk 0.082  sil 0.076  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 40.31  kw 0.485  unk 0.195  sil 0.320  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 40.31  kw 0.411  unk 0.179  sil 0.411  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 40.31  kw 0.547  unk 0.171  sil 0.282  -> keyword | feat 1.18 ms  infer 84.13 ms  cpu 48.0%

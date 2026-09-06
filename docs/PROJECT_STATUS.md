@@ -47,7 +47,17 @@ attribution came from arithmetic instead: ~25 cycles/MAC, i.e. scalar-with-overh
 Root cause is model shape - the 98x40 input is 8x larger than ARM's DS-CNN-S reference
 (49x10).
 
-STILL BLOCKED at Phase 16. Next: rebuild features as 49x13 MFCC (DCT + 20 ms hop),
+**PHASE 12-15 RE-RUN — EXP-012/013.** MFCC 49x13 + 32-channel model: inference
+84.17 ms (146x total speedup), arena 15,460 B, CPU 48 %% of one core. MFCC host/device
+parity RE-VERIFIED (max abs diff 0.000112, correlation 1.0000000000).
+
+First valid live test: the keyword IS detected on-device with confident probabilities,
+and silence is handled correctly. But 34.9 %% of all inference frames would fire, against
+10.7 %% measured offline. Parity rules out a feature bug; the cause is dataset design --
+training positives are all centred complete words, while continuous operation presents a
+partial word in most windows.
+
+OLD NOTE (superseded): STILL BLOCKED at Phase 16. Next: rebuild features as 49x13 MFCC (DCT + 20 ms hop),
 retrain, re-verify host/device parity, re-measure. No new recordings needed - every raw
 session WAV is saved.
 
