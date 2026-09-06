@@ -27,6 +27,19 @@ trivial silence class. Miss 2.1 % / false-fire 6.3 % at threshold 0.5 against ha
 negatives. All meaningful errors are unknown-vs-keyword confusions.
 Training environment: TensorFlow 2.21.0 in a venv on D: (C: is 99 % full).
 
+**PHASE 12-13 — quantisation: COMPLETE (EXP-009).** int8, 46.3 KB, accuracy delta
++0.0000 but the operating point shifts more trigger-happy.
+
+**PHASE 14-15 — on-device deployment: PARTIAL (EXP-010).** TFLM compiles and runs on
+the existing Arduino/IDF 4.4 toolchain; arena 132,004 B internal; features 1.11 ms/frame.
+**Inference is 12,280 ms against a 100 ms budget — 123x over, and ~140x below even a
+scalar 1-MAC/cycle bound.** On-device detection accuracy is NOT measured: at 12 s per
+inference the audio/result timing relationship is broken, so the log's apparent
+detections are not evidence.
+
+BLOCKED at Phase 16 until inference is viable. Next: per-op profiling, then ESP-NN
+(now evidence-backed, not assumed) plus model reduction. Both likely needed.
+
 
 
 **MILESTONE 01 reached: the audio capture path is fully validated** (see
