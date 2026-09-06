@@ -1,0 +1,18 @@
+{
+  "mean": 15.813641548156738,
+  "std": 2.5956406593322754,
+  "n_frames": 98,
+  "n_mel": 40,
+  "classes": [
+    "keyword",
+    "unknown",
+    "silence"
+  ],
+  "input_scale": 0.02723478339612484,
+  "input_zero_point": -15,
+  "output_scale": 0.0741243064403534,
+  "output_zero_point": -14,
+  "tflite_bytes": 47416,
+  "float_accuracy": 0.9505494505494505,
+  "int8_accuracy": 0.9505494505494505
+}
