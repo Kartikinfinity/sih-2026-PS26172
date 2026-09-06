@@ -50,6 +50,16 @@ EDGE_GUARD_S = 0.05      # a burst touching the recording boundary is incomplete
 CLIP_S = 1.5             # generous; training-time random cropping needs margin
 MIN_MARGIN_S = 0.05      # QC: fail the run if a word sits closer than this to an edge
 
+# QC plausibility band for a detected utterance. Session 6 (2026-09-06) produced
+# 15 clips whose detected "words" were 0.12-0.25 s long -- fragments of syllables
+# picked out of background noise -- and QC still reported PASS, because it only
+# checked edge margins. Tiny detections trivially satisfy a margin test. Measured
+# real utterances across five sessions span 0.57-1.47 s.
+PLAUSIBLE_MIN_S = 0.45
+PLAUSIBLE_MAX_S = 1.60
+MIN_SNR = 6.0            # p99/p20 envelope ratio below this means segmentation
+                         # cannot work; record clean speech and noise separately
+
 
 def open_stream():
     """Reset the board and return a serial handle positioned at the raw stream."""
@@ -185,6 +195,20 @@ def write_wav(path, x):
 
 def finish(x, label, outdir):
     segs, floor, env, t, rejected = find_bursts(x)
+
+    # Refuse to segment audio whose SNR makes segmentation meaningless, rather
+    # than emitting confident-looking fragments.
+    snr = np.percentile(env, 99) / max(np.percentile(env, 20), 1e-9)
+    print(">>> envelope dynamic range (p99/p20) = %.1fx" % snr)
+    if snr < MIN_SNR:
+        print("")
+        print("!!! ABORTED: dynamic range %.1fx is below the %.1fx minimum." % (snr, MIN_SNR))
+        print("!!! The background is too loud relative to speech for energy-based")
+        print("!!! segmentation to find word boundaries. Record clean speech and")
+        print("!!! background noise SEPARATELY, then mix at chosen SNRs instead.")
+        print("!!! The raw session is saved and can be re-segmented later.")
+        return 1
+
     print(">>> noise floor (band-limited envelope) = %.1f" % floor)
     print(">>> accepted %d utterances, rejected %d" % (len(segs), len(rejected)))
     for s, why in rejected:
@@ -224,11 +248,21 @@ def finish(x, label, outdir):
               % (durs.min(), np.median(durs), durs.max()))
         print("lead margin : min %.3f  median %.3f s" % (m[:, 0].min(), np.median(m[:, 0])))
         print("tail margin : min %.3f  median %.3f s" % (m[:, 1].min(), np.median(m[:, 1])))
+        # Plausibility, not just margins. A margin test alone passes happily on
+        # 0.13 s noise fragments, which is exactly how session 6 slipped through.
+        implausible = int(np.sum((durs < PLAUSIBLE_MIN_S) | (durs > PLAUSIBLE_MAX_S)))
+        fails = []
         if tight:
-            print("QC: FAIL -- %d/%d clips have under %.0f ms margin"
-                  % (tight, kept, MIN_MARGIN_S * 1000))
+            fails.append("%d/%d clips under %.0f ms margin" % (tight, kept, MIN_MARGIN_S * 1000))
+        if implausible:
+            fails.append("%d/%d detections outside the plausible %.2f-%.2f s word length"
+                         % (implausible, kept, PLAUSIBLE_MIN_S, PLAUSIBLE_MAX_S))
+        if np.median(durs) < PLAUSIBLE_MIN_S:
+            fails.append("median detection %.2f s is not a word" % np.median(durs))
+        if fails:
+            print("QC: FAIL -- " + "; ".join(fails))
         else:
-            print("QC: PASS -- every clip has at least %.0f ms clear at both ends"
+            print("QC: PASS -- margins >= %.0f ms and all detections are plausible words"
                   % (MIN_MARGIN_S * 1000))
     return 0
 
