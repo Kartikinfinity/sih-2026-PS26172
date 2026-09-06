@@ -21,6 +21,13 @@ Dataset (single speaker, see DECISION-02 for the speaker-independence risk):
 | Background noise | 90 s | one source, 86.9% of energy below 100 Hz |
 | Rejected (auditable) | 23 | 7 partial, 1 degenerate, 15 low-SNR |
 
+**PHASE 10-11 — baseline model + training: COMPLETE (EXP-008)**
+DS-CNN, 23,747 params (~23 KB int8). Test accuracy 0.9505, but 0.9196 excluding the
+trivial silence class. Miss 2.1 % / false-fire 6.3 % at threshold 0.5 against hard
+negatives. All meaningful errors are unknown-vs-keyword confusions.
+Training environment: TensorFlow 2.21.0 in a venv on D: (C: is 99 % full).
+
+
 
 **MILESTONE 01 reached: the audio capture path is fully validated** (see
 `experiments/MILESTONE-01-audio-capture-validated.md`) — sample rate measured, bit

@@ -17,3 +17,5 @@ Thumbs.db
 __pycache__/
 *.pyc
 dataset/
+model/*.keras
+model/*.tflite

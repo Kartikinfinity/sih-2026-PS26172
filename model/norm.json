@@ -1,0 +1,11 @@
+{
+  "mean": 15.813641548156738,
+  "std": 2.5956406593322754,
+  "n_frames": 98,
+  "n_mel": 40,
+  "classes": [
+    "keyword",
+    "unknown",
+    "silence"
+  ]
+}
