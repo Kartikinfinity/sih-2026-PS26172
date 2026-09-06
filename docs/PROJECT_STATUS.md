@@ -57,7 +57,18 @@ and silence is handled correctly. But 34.9 %% of all inference frames would fire
 training positives are all centred complete words, while continuous operation presents a
 partial word in most windows.
 
-OLD NOTE (superseded): STILL BLOCKED at Phase 16. Next: rebuild features as 49x13 MFCC (DCT + 20 ms hop),
+**EXP-014 — THE EVALUATION WAS THE BUG.** Both models on the SAME 789 realistic
+sliding windows: the deployed centred-clip model fires on **49.7 %%** of non-keyword
+windows (consistent with 34.9 %% observed live), not the 10.7 %% its curated test set
+reported. Every accuracy figure from EXP-008 onward was measured against centred
+complete words, which is not what a sliding-window detector receives.
+
+Continuous-window training cuts false-fire to 0.15 %% at threshold 0.90 but raises miss
+to 68.3 %%. Best operating point is threshold 0.50: miss 34.2 %%, false-fire 2.1 %%.
+NEITHER model is deployable. The new one at least fails conservatively.
+
+Next: temporal smoothing (now legitimate at 2.1 %% per-window false-fire, whereas at
+~50 %% it would have concealed the defect), then more keyword data for the miss rate. Next: rebuild features as 49x13 MFCC (DCT + 20 ms hop),
 retrain, re-verify host/device parity, re-measure. No new recordings needed - every raw
 session WAV is saved.
 
