@@ -16,3 +16,4 @@ Thumbs.db
 # --- Python scratch --------------------------------------------------------
 __pycache__/
 *.pyc
+dataset/
