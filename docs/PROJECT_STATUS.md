@@ -37,8 +37,19 @@ scalar 1-MAC/cycle bound.** On-device detection accuracy is NOT measured: at 12 
 inference the audio/result timing relationship is broken, so the log's apparent
 detections are not evidence.
 
-BLOCKED at Phase 16 until inference is viable. Next: per-op profiling, then ESP-NN
-(now evidence-backed, not assumed) plus model reduction. Both likely needed.
+**PHASE 19 (pulled forward) — ESP-NN: PARTIAL (EXP-011).** ESP_TF bundles ESP-NN but
+gates it behind `#if ESP_NN` with no build flags declared, so reference kernels were
+compiling. Adding -DESP_NN=1 and -DCONFIG_IDF_TARGET_ESP32S3=1 gave a measured **5.48x**
+speedup: 12,280 -> 2,240 ms. Still 22.4x over the 100 ms budget.
+
+TFLM's MicroProfiler is non-functional in this port (0 ticks for every op), so per-op
+attribution came from arithmetic instead: ~25 cycles/MAC, i.e. scalar-with-overhead.
+Root cause is model shape - the 98x40 input is 8x larger than ARM's DS-CNN-S reference
+(49x10).
+
+STILL BLOCKED at Phase 16. Next: rebuild features as 49x13 MFCC (DCT + 20 ms hop),
+retrain, re-verify host/device parity, re-measure. No new recordings needed - every raw
+session WAV is saved.
 
 
 
