@@ -16,15 +16,25 @@ import numpy as np
 
 FS = 16000
 FRAME_LEN = 400          # 25 ms
-FRAME_HOP = 160          # 10 ms
+FRAME_HOP = 320          # 20 ms
 NFFT = 512
 NBINS = NFFT // 2 + 1    # 257
-N_MEL = 40
+N_MEL = 40               # filterbank size (internal)
+N_MFCC = 13              # coefficients kept after the DCT -- the model input
 MEL_LO = 125.0
 MEL_HI = 7500.0
 LOG_OFFSET = 1e-6
 
-# 1.0 s of audio is what the model sees: (16000 - 400) / 160 + 1 = 98 frames.
+# EXP-011 rebuilt this stage. The previous 98 x 40 log-Mel input carried 8x the
+# data of ARM's DS-CNN-S reference (49 x 10) and made on-device inference 22x
+# over budget even with ESP-NN enabled. Two changes, both suggested by the plan
+# itself ("13-40 MFCC coefficients x 40-50 frames"):
+#   hop 10 ms -> 20 ms   : 98 -> 49 frames
+#   40 log-Mel -> 13 MFCC: a DCT decorrelates the bands and keeps the low
+#                          cepstral coefficients that carry phonetic identity
+# Combined input 49 x 13 = 637 vs 3,920, a 6.2x reduction.
+#
+# 1.0 s of audio: (16000 - 400) / 320 + 1 = 49 frames.
 WINDOW_S = 1.0
 WINDOW_SAMPLES = int(WINDOW_S * FS)
 N_FRAMES = (WINDOW_SAMPLES - FRAME_LEN) // FRAME_HOP + 1
@@ -57,22 +67,47 @@ def _build_melbank():
     return fb
 
 
+def _build_dct():
+    """Orthonormal DCT-II, N_MEL -> N_MFCC. Standard MFCC definition."""
+    d = np.zeros((N_MFCC, N_MEL))
+    for k in range(N_MFCC):
+        for n in range(N_MEL):
+            d[k, n] = np.cos(np.pi * k * (2 * n + 1) / (2 * N_MEL))
+    d[0, :] *= np.sqrt(1.0 / N_MEL)
+    d[1:, :] *= np.sqrt(2.0 / N_MEL)
+    return d
+
+
 _WINDOW = _build_window()
 _MELBANK = _build_melbank()
+_DCT = _build_dct()
 
 
-def log_mel(x, n_frames=None):
+def log_mel(x, n_frames=None, hop=None):
     """int16-scale audio -> (n_frames, N_MEL) float32 log-Mel features."""
     x = np.asarray(x, dtype=np.float64)
+    hop = FRAME_HOP if hop is None else hop
     if n_frames is None:
-        n_frames = (len(x) - FRAME_LEN) // FRAME_HOP + 1
+        n_frames = (len(x) - FRAME_LEN) // hop + 1
     out = np.empty((n_frames, N_MEL), dtype=np.float32)
     for i in range(n_frames):
-        frame = x[i * FRAME_HOP:i * FRAME_HOP + FRAME_LEN] * _WINDOW
+        frame = x[i * hop:i * hop + FRAME_LEN] * _WINDOW
         spec = np.fft.rfft(frame, NFFT)
         power = spec.real ** 2 + spec.imag ** 2
         out[i] = np.log(_MELBANK @ power + LOG_OFFSET)
     return out
+
+
+def mfcc(x, n_frames=None):
+    """int16-scale audio -> (n_frames, N_MFCC) float32 MFCC features.
+
+    log-Mel then an orthonormal DCT-II, keeping the first N_MFCC coefficients.
+    The DCT decorrelates the strongly-overlapping Mel bands, so the low
+    coefficients concentrate the spectral-envelope shape that distinguishes one
+    word from another, and the high ones (mostly fine pitch detail) are dropped.
+    """
+    lm = log_mel(x, n_frames=n_frames)
+    return (lm @ _DCT.T).astype(np.float32)
 
 
 def inband_rms(x, lo_hz=MEL_LO, hi_hz=MEL_HI):

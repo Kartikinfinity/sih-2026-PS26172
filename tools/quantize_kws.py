@@ -96,7 +96,8 @@ def main():
     d = np.load(ds, allow_pickle=True)
     Xtr, Xte, yte = d["Xtr"], d["Xte"], d["yte"]
     norm = json.load(open(os.path.join(mdir, "norm.json")))
-    mean, std = norm["mean"], norm["std"]
+    mean = np.asarray(norm["mean"], dtype=np.float64)
+    std = np.asarray(norm["std"], dtype=np.float64)
 
     def prep(X):
         return ((X - mean) / std).astype(np.float32)[..., None]
@@ -144,6 +145,8 @@ def main():
                 "extern const unsigned int g_kws_model_len;\n")
 
     meta = dict(norm)
+    meta["mean"] = [float(v) for v in np.atleast_1d(mean)]
+    meta["std"] = [float(v) for v in np.atleast_1d(std)]
     meta.update({"input_scale": float(in_s), "input_zero_point": int(in_z),
                  "output_scale": float(out_s), "output_zero_point": int(out_z),
                  "tflite_bytes": int(len(tfl)),

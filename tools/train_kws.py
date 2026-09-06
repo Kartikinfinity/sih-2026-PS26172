@@ -29,9 +29,13 @@ BATCH = 64
 CLASSES = ["keyword", "unknown", "silence"]
 
 
-def build_model(n_frames, n_mel, n_classes=3, ch=64):
-    def ds_block(x, ch):
-        x = tf.keras.layers.DepthwiseConv2D((3, 3), padding="same", use_bias=False)(x)
+def build_model(n_frames, n_mel, n_classes=3, ch=32):
+    # EXP-011 measured 2,240 ms/inference with 64 channels on a 98x40 input --
+    # 22x over budget. Channels halved to 32 and a stride-2 added mid-stack;
+    # combined with the 49x13 MFCC input this cuts MACs from ~21 M to ~0.7 M.
+    def ds_block(x, ch, stride=1):
+        x = tf.keras.layers.DepthwiseConv2D((3, 3), strides=stride, padding="same",
+                                            use_bias=False)(x)
         x = tf.keras.layers.BatchNormalization()(x)
         x = tf.keras.layers.ReLU()(x)
         x = tf.keras.layers.Conv2D(ch, (1, 1), padding="same", use_bias=False)(x)
@@ -44,8 +48,10 @@ def build_model(n_frames, n_mel, n_classes=3, ch=64):
                                use_bias=False)(inp)
     x = tf.keras.layers.BatchNormalization()(x)
     x = tf.keras.layers.ReLU()(x)
-    for _ in range(4):
-        x = ds_block(x, ch)
+    x = ds_block(x, ch)
+    x = ds_block(x, ch, stride=2)
+    x = ds_block(x, ch)
+    x = ds_block(x, ch)
     x = tf.keras.layers.GlobalAveragePooling2D()(x)
     x = tf.keras.layers.Dropout(0.3)(x)
     out = tf.keras.layers.Dense(n_classes)(x)
@@ -101,10 +107,21 @@ def main():
     Xte, yte = d["Xte"], d["yte"]
     n_frames, n_mel = int(d["n_frames"]), int(d["n_mel"])
 
-    # Normalisation from TRAIN ONLY. Using val/test statistics would leak.
-    mean = float(Xtr.mean())
-    std = float(Xtr.std())
-    print("normalisation: mean %.6f  std %.6f  (train only)" % (mean, std))
+    # PER-COEFFICIENT normalisation, from TRAIN ONLY (val/test stats would leak).
+    #
+    # A single global mean/std was used for the log-Mel model and worked because
+    # all 40 bands shared a scale. It fails badly for MFCC: c0 is the log-energy
+    # term with mean ~100 and std ~8.9, while c1-c12 sit near zero with std
+    # 1.0-3.5. Under global normalisation c2-c12 collapse to std 0.04-0.08 --
+    # eleven near-constant channels -- and the model degenerates to predicting
+    # the majority class. Measured: test accuracy 0.3846, exactly the silence
+    # fraction. Per-coefficient scaling (cepstral mean-variance normalisation)
+    # is the standard fix.
+    mean = Xtr.mean(axis=(0, 1))
+    std = Xtr.std(axis=(0, 1)) + 1e-6
+    print("normalisation: per-coefficient over %d coefficients (train only)" % len(mean))
+    print("  mean range %.2f .. %.2f | std range %.2f .. %.2f"
+          % (mean.min(), mean.max(), std.min(), std.max()))
 
     def prep(X):
         return ((X - mean) / std).astype(np.float32)[..., None]
@@ -141,8 +158,11 @@ def main():
 
     model.save(os.path.join(outdir, "kws_float.keras"))
     with open(os.path.join(outdir, "norm.json"), "w") as f:
-        json.dump({"mean": mean, "std": std, "n_frames": n_frames,
-                   "n_mel": n_mel, "classes": CLASSES}, f, indent=2)
+        json.dump({"mean": [float(v) for v in np.atleast_1d(mean)],
+                   "std": [float(v) for v in np.atleast_1d(std)],
+                   "per_coefficient": True,
+                   "n_frames": n_frames, "n_mel": n_mel,
+                   "classes": CLASSES}, f, indent=2)
     print("")
     print("saved %s/kws_float.keras and norm.json" % outdir)
     print("test accuracy %.4f" % acc)

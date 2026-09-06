@@ -33,7 +33,7 @@ import wave
 
 import numpy as np
 
-from features import FS, WINDOW_SAMPLES, N_FRAMES, N_MEL, log_mel, mix_at_snr
+from features import FS, WINDOW_SAMPLES, N_FRAMES, N_MFCC, mfcc, mix_at_snr
 
 POS_DIR = "dataset/positive"
 NEG_DIR = "dataset/hard_negative"
@@ -92,7 +92,7 @@ def crop(x, rng=None):
 
 
 def featurise(x):
-    return log_mel(x, n_frames=N_FRAMES)
+    return mfcc(x, n_frames=N_FRAMES)
 
 
 def main():
@@ -188,7 +188,7 @@ def main():
 
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
     np.savez_compressed(out, Xtr=Xtr, ytr=ytr, Xva=Xva, yva=yva, Xte=Xte, yte=yte,
-                        n_frames=N_FRAMES, n_mel=N_MEL, classes=np.array(
+                        n_frames=N_FRAMES, n_mel=N_MFCC, classes=np.array(
                             ["keyword", "unknown", "silence"]))
     print("")
     print("saved %s (%.1f MB)" % (out, os.path.getsize(out) / 1e6))
