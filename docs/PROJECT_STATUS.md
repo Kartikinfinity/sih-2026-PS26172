@@ -8,7 +8,8 @@ Last updated: 2026-09-05
 **PHASE 1 — wiring verification: COMPLETE (EXP-001, PASS)**
 **PHASE 2-3 — I2S capture: PASS (EXP-002B speech confirmed)**
 **PHASE 4-5 — PCM transfer + signal analysis: PASS (EXP-003)**
-**PHASE 6 — preprocessing: COMPLETE (EXP-005). Band-limited detector passes on every word.**
+**PHASE 6 — preprocessing: COMPLETE (EXP-005)**
+**PHASE 7 — feature extraction: COMPLETE (EXP-006). Host/device parity verified.**
 
 **MILESTONE 01 reached: the audio capture path is fully validated** (see
 `experiments/MILESTONE-01-audio-capture-validated.md`) — sample rate measured, bit
@@ -63,10 +64,13 @@ Measured on-device and read from installed packages — see `experiments/EXP-000
 
 ## Next experiment
 
-**EXP-006 — Phase 7 feature extraction: framing, windowing, FFT, Mel filterbank.**
-EXP-005 showed band-limited energy improves the PEAK by only 1.39x over wideband and
-leaves p90/mean unchanged — a scalar detector cannot tell a keyword from a door slam.
-Feature *vectors* describing spectral shape are required.
+**EXP-007 — Phase 8/9: KWS fundamentals and dataset creation.** The front end is
+built and verified; the next question is what the model consumes and how training data
+is collected.
+
+Open item carried forward: feature extraction costs 11.07 % CPU, above the plan's
+<10 % target. ESP-DSP (installed, unused) is the Phase 19 lever; the 1.107 ms/frame
+baseline is recorded for comparison.
 
 ## Explicitly NOT done yet
 
