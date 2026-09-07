@@ -62,20 +62,29 @@ def stream_probs(model, mean, std, x):
     return np.array([s / FS for s in starts]), p[:, 0]
 
 
-def fire_times(t, kw, thresh, n_consec):
-    """Rising edges after requiring n_consec consecutive windows above thresh."""
-    above = kw >= thresh
-    fires, run = [], 0
-    armed = True
-    for i, a in enumerate(above):
-        if a:
-            run += 1
-            if run >= n_consec and armed:
-                fires.append(t[i])
-                armed = False
-        else:
-            run = 0
-            armed = True
+def fire_times(t, kw, thresh, m, n=None, refractory_s=1.2):
+    """Fire when M of the last N windows are above threshold.
+
+    Strict consecutiveness (the original rule) is brittle. A real utterance
+    produces a probability that OSCILLATES around the threshold: the live test
+    recorded 0.836, 0.481, 0.926, 0.805 across one spoken keyword. A single dip
+    resets a consecutive counter, so a confidently-detected word was missed.
+    Elsewhere the wobble happened to land two-in-a-row twice and fired twice for
+    one utterance.
+
+    M-of-N tolerates the dip; the refractory period stops one utterance being
+    counted more than once.
+    """
+    if n is None:
+        n = m
+    above = (kw >= thresh).astype(int)
+    fires = []
+    last = -1e9
+    for i in range(len(above)):
+        lo = max(0, i - n + 1)
+        if above[lo:i + 1].sum() >= m and (t[i] - last) >= refractory_s:
+            fires.append(t[i])
+            last = t[i]
     return fires
 
 
@@ -112,12 +121,12 @@ def main():
     print("held-out audio: %.1f s (%.2f min) across %d sessions" % (total_s, total_s / 60, len(segs)))
     print("true keyword utterances in that audio: %d" % total_utts)
     print("")
-    print("%-8s %-7s %10s %14s %16s" % ("thresh", "N", "detected", "missed", "false/min"))
-    for thresh in (0.5, 0.7, 0.9):
-        for nc in (1, 2, 3, 4):
+    print("%-8s %-9s %10s %14s %16s" % ("thresh", "M-of-N", "detected", "missed", "false/min"))
+    for thresh in (0.4, 0.5, 0.6):
+        for (m_, n_) in ((1, 1), (2, 2), (2, 3), (2, 4), (3, 4), (3, 5)):
             det = miss = false = 0
             for t, kw, u, positive, dur in segs:
-                f = fire_times(t, kw, thresh, nc)
+                f = fire_times(t, kw, thresh, m_, n_)
                 used = [False] * len(f)
                 if positive:
                     for (a, b) in u:
@@ -133,8 +142,8 @@ def main():
                             det += 1
                 false += sum(1 for i in range(len(f)) if not used[i])
             rate = 60.0 * false / max(total_s, 1e-9)
-            print("%-8.2f %-7d %8d/%d %13d %16.2f"
-                  % (thresh, nc, det, total_utts, miss, rate))
+            print("%-8.2f %-9s %8d/%d %13d %16.2f"
+                  % (thresh, "%d-of-%d" % (m_, n_), det, total_utts, miss, rate))
     print("")
     print("NOTE: %.2f minutes of held-out audio is a small sample. A per-hour figure"
           % (total_s / 60))

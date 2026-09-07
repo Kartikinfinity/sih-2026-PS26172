@@ -57,14 +57,27 @@ constexpr int OUT_ZP = KWS_OUT_ZP;
 
 constexpr int INFER_EVERY_HOPS = 10;      // inference every 10 x 20 ms = 200 ms
 
-// Operating point from EXP-015, which measured this exact rule on time-ordered
-// held-out audio (120 s, 38 utterances):
-//     threshold 0.50, N=1  ->  30/38 detected, 4.00 false activations/min
-//     threshold 0.50, N=2  ->  23/38 detected, 0.00 false activations/min
-// N=2 is chosen: a wake word that occasionally misses is annoying, one that
-// fires several times a minute unprompted is unusable.
+// M-of-N voting with a refractory period, measured on time-ordered held-out
+// audio (120 s, 38 utterances):
+//     0.50  2-of-2  ->  23/38 detected, 0.00 false/min
+//     0.50  2-of-3  ->  26/38 detected, 1.00 false/min   <-- chosen
+//     0.60  2-of-3  ->  22/38 detected, 0.00 false/min
+//
+// Strict consecutiveness was tried first and is brittle. A real utterance
+// produces a probability that OSCILLATES around the threshold -- the live test
+// recorded 0.836, 0.481, 0.926, 0.805 across one spoken keyword. A single dip
+// reset the run counter and a confidently-detected word was missed, while
+// elsewhere the wobble landed two-in-a-row twice and fired twice for one word.
+//
+// 2-of-3 is chosen over 2-of-2 because the detection gain (+3 of 38) is a
+// larger and better-measured effect than the false-rate difference: 0.00 vs
+// 1.00 per minute over a 2-minute sample is 0 events vs 2 events, well inside
+// noise. The refractory period is an unambiguous win either way -- it is what
+// stops one utterance being reported twice.
 constexpr float DETECT_THRESHOLD = 0.50f;
-constexpr int DETECT_CONSECUTIVE = 2;
+constexpr int DETECT_M = 2;               // windows above threshold...
+constexpr int DETECT_N = 3;               // ...within this many recent windows
+constexpr int REFRACTORY_WINDOWS = 6;     // 6 x 200 ms = 1.2 s lockout
 
 // EXP-012 measured 15,460 bytes actually used by this model. 48 KB leaves
 // generous headroom without wasting internal SRAM.
@@ -93,8 +106,9 @@ TfLiteTensor *g_output = nullptr;
 double g_feat_us = 0;
 long g_feat_n = 0;
 
-int g_consec = 0;        // consecutive windows above threshold
-bool g_armed = true;     // re-armed once a window falls below threshold
+bool g_recent[DETECT_N] = {false};   // sliding history of threshold crossings
+int g_recent_head = 0;
+int g_lockout = 0;                   // windows remaining in the refractory period
 long g_detections = 0;
 
 void fft(float *re, float *im, int n) {
@@ -234,10 +248,11 @@ void runInference() {
   int best = 0;
   for (int i = 1; i < 3; ++i) if (prob[i] > prob[best]) best = i;
 
-  // --- temporal smoothing -----------------------------------------------
-  // Fire only after DETECT_CONSECUTIVE windows in a row cross the threshold,
-  // then stay latched until one window falls below it. This is the exact rule
-  // tools/eval_streaming.py measured, so device behaviour matches the numbers.
+  // --- temporal smoothing (M-of-N vote + refractory) ---------------------
+  // Fire when DETECT_M of the last DETECT_N windows cross the threshold, then
+  // lock out for REFRACTORY_WINDOWS so one utterance cannot report twice. This
+  // is the exact rule tools/eval_streaming.py measures, so device behaviour
+  // matches the published numbers.
   //
   // It works because the two error types differ in time structure: a real
   // utterance spans several consecutive windows, while false windows are
@@ -248,16 +263,19 @@ void runInference() {
   // ~50 % per-window false rate, consecutive false windows were common, so
   // smoothing would have improved the reported number while concealing the
   // defect rather than removing it.
+  g_recent[g_recent_head] = (prob[0] >= DETECT_THRESHOLD);
+  g_recent_head = (g_recent_head + 1) % DETECT_N;
+  int votes = 0;
+  for (int i = 0; i < DETECT_N; ++i) if (g_recent[i]) votes++;
+
   bool fired = false;
-  if (prob[0] >= DETECT_THRESHOLD) {
-    if (++g_consec >= DETECT_CONSECUTIVE && g_armed) {
-      fired = true;
-      g_armed = false;
-      g_detections++;
-    }
-  } else {
-    g_consec = 0;
-    g_armed = true;
+  if (g_lockout > 0) {
+    g_lockout--;
+  } else if (votes >= DETECT_M) {
+    fired = true;
+    g_detections++;
+    g_lockout = REFRACTORY_WINDOWS;
+    for (int i = 0; i < DETECT_N; ++i) g_recent[i] = false;  // start clean
   }
 
   const double feat_ms = g_feat_us / 1000.0 / (double)(g_feat_n > 0 ? g_feat_n : 1);
@@ -268,8 +286,8 @@ void runInference() {
   constexpr double kHopMs = 1000.0 * FRAME_HOP / SAMPLE_RATE;
   const double cpu = 100.0 * (feat_ms / kHopMs + inf_ms / (kHopMs * INFER_EVERY_HOPS));
 
-  Serial.printf("kw %.3f  unk %.3f  sil %.3f  -> %-7s | run %d | feat %.2f ms  infer %.2f ms  cpu %.1f%%%s\n",
-                prob[0], prob[1], prob[2], kClassNames[best], g_consec, feat_ms,
+  Serial.printf("kw %.3f  unk %.3f  sil %.3f  -> %-7s | vote %d | feat %.2f ms  infer %.2f ms  cpu %.1f%%%s\n",
+                prob[0], prob[1], prob[2], kClassNames[best], votes, feat_ms,
                 inf_ms, cpu,
                 fired ? "   *** SENTINEL ***" : "");
 }
@@ -285,8 +303,8 @@ void setup() {
   Serial.printf("  %d frames x %d MFCC | hop %d ms | inference every %d ms\n",
                 N_FRAMES, N_MFCC, FRAME_HOP * 1000 / SAMPLE_RATE,
                 INFER_EVERY_HOPS * FRAME_HOP * 1000 / SAMPLE_RATE);
-  Serial.printf("  threshold %.2f | %d consecutive windows required to fire\n",
-                DETECT_THRESHOLD, DETECT_CONSECUTIVE);
+  Serial.printf("  threshold %.2f | %d-of-%d vote | %d-window refractory\n",
+                DETECT_THRESHOLD, DETECT_M, DETECT_N, REFRACTORY_WINDOWS);
   Serial.println("================================================================");
 
   if (!i2sInit()) { Serial.println("I2S INIT FAILED"); while (true) delay(1000); }

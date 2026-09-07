@@ -67,8 +67,27 @@ Continuous-window training cuts false-fire to 0.15 %% at threshold 0.90 but rais
 to 68.3 %%. Best operating point is threshold 0.50: miss 34.2 %%, false-fire 2.1 %%.
 NEITHER model is deployable. The new one at least fails conservatively.
 
-Next: temporal smoothing (now legitimate at 2.1 %% per-window false-fire, whereas at
-~50 %% it would have concealed the defect), then more keyword data for the miss rate. Next: rebuild features as 49x13 MFCC (DCT + 20 ms hop),
+**EXP-016 — DEPLOYED AND MEASURED ON HARDWARE. The system is NOT usable.**
+
+The continuous model was quantised (24,536 B) and flashed, smoothing was implemented in
+firmware, and two controlled live tests were run:
+
+| | offline prediction | measured live |
+|---|---|---|
+| Detection rate | 68.4 % | **50 %** (5 firings from 10 spoken keywords) |
+| False activations/min | 1.00 | **11.88** (8 in 40.4 s of keyword-free speech) |
+
+Two different smoothing rules (strict 2-consecutive, and 2-of-3 vote with refractory)
+both gave exactly 50 % on hardware. **Decision-logic tuning is exhausted.**
+
+The offline evaluation was optimistic by ~12x on the false rate for a structural reason,
+and it is the second time: the held-out windows come from the same narrow recording
+sessions as training. Those were a fixed word list in one room; Test 2 was natural speech.
+Peak confidence on unseen words reached 0.999 -- the model is not uncertain about
+unfamiliar speech, it is confidently wrong about it.
+
+ONLY REMAINING LEVER: the negative class must represent speech in general, not sixteen
+near-miss words recorded in one sitting. Next: rebuild features as 49x13 MFCC (DCT + 20 ms hop),
 retrain, re-verify host/device parity, re-measure. No new recordings needed - every raw
 session WAV is saved.
 
