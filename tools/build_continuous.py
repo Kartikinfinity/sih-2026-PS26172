@@ -73,7 +73,13 @@ MAX_PER_CLASS_PER_SESSION = 400
 # differently-augmented copies of each keeps the class from being starved
 # WITHOUT widening the label rule, which would reintroduce partial words as
 # positives and defeat the point of this dataset.
-TRAIN_COPIES = {0: 4, 1: 1, 2: 1}
+# Raised 4 -> 14 after EXP-018. With Speech Commands imported, the unknown class
+# holds 5,281 windows from ~2,000 speakers while keyword held 1,576 from one, and
+# the model collapsed to answering "unknown" for everything -- 0/10 detected on
+# fresh audio with kw never exceeding 0.205. Class weights alone did not
+# compensate for that diversity gap. Oversampling keeps all the negative variety
+# while giving the keyword class comparable representation.
+TRAIN_COPIES = {0: 14, 1: 1, 2: 1}
 AUG_SNRS = [None, None, 20.0, 15.0, 10.0, 5.0]
 SEED = 20260906
 

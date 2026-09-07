@@ -86,8 +86,29 @@ sessions as training. Those were a fixed word list in one room; Test 2 was natur
 Peak confidence on unseen words reached 0.999 -- the model is not uncertain about
 unfamiliar speech, it is confidently wrong about it.
 
-ONLY REMAINING LEVER: the negative class must represent speech in general, not sixteen
-near-miss words recorded in one sitting. Next: rebuild features as 49x13 MFCC (DCT + 20 ms hop),
+**EXP-017/018 — Speech Commands imported, then class-balanced. Best model yet.**
+
+Three models on identical controlled live tests (Test 1 = keyword x10; Test 2 = 40 s
+with the keyword never spoken):
+
+| model | negatives | detection | false/min |
+|---|---|---|---|
+| model_cont | 1,431 ours | 5/10 | 11.88 |
+| model_aug | 5,281 +SpeechCommands | 0-2/10 | 0.00 |
+| **model_bal** | 5,281, keyword oversampled | **8/10** | 7.43 |
+
+model_bal beats model_cont on BOTH axes. But the measured Pareto frontier shows no
+operating point good on both: 8/10 costs 7.43 false/min; 0.00 false/min costs 6 of 10
+detections. Deployed at 0.70 / 2-of-2 (4/10, 0.00 false/min) for demonstration.
+
+EXP-017 alone would have been reported as a success (false fires 11.88 -> 0.00). Fresh
+validation measured 0/10 detection with kw never exceeding 0.205 — the model had solved
+false fires by refusing to say "keyword" at all.
+
+REMAINING LEVER: keyword recordings. The negative class now has 5,281 windows from ~2,000
+speakers; the positive class has ~180 utterances from one person, one room, one day.
+Oversampling copies them, it does not add information. Decision-logic tuning and
+negative-data collection are both exhausted, each demonstrated on hardware. Next: rebuild features as 49x13 MFCC (DCT + 20 ms hop),
 retrain, re-verify host/device parity, re-measure. No new recordings needed - every raw
 session WAV is saved.
 
