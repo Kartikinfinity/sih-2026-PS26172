@@ -1,0 +1,194 @@
+  1.01  
+  1.01  ================================================================
+  1.01   SENTINEL  on-device keyword spotting (MFCC + int8 DS-CNN)
+  1.01    49 frames x 13 MFCC | hop 20 ms | inference every 200 ms
+  1.01    threshold 0.70 | 2-of-2 vote | 6-window refractory
+  1.01  ================================================================
+  1.01  [ MODEL ] 24536 bytes | arena used 15460 of 49152 | heap free 249144
+  3.04  [ LISTENING ] say the keyword
+  4.05  kw 0.915  unk 0.075  sil 0.011  -> keyword | vote 1 | feat 1.17 ms  infer 84.30 ms  cpu 48.0%
+  4.05  kw 0.998  unk 0.001  sil 0.001  -> keyword | vote 2 | feat 1.17 ms  infer 84.12 ms  cpu 47.9%   *** SENTINEL ***
+  4.05  kw 0.976  unk 0.023  sil 0.002  -> keyword | vote 1 | feat 1.17 ms  infer 84.13 ms  cpu 47.9%
+  4.05  kw 0.483  unk 0.273  sil 0.244  -> keyword | vote 1 | feat 1.18 ms  infer 84.12 ms  cpu 47.9%
+  5.06  kw 0.007  unk 0.841  sil 0.152  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 47.9%
+  5.06  kw 0.001  unk 0.348  sil 0.651  -> silence | vote 0 | feat 1.18 ms  infer 84.12 ms  cpu 47.9%
+  5.06  kw 0.000  unk 0.084  sil 0.916  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  5.06  kw 0.000  unk 0.068  sil 0.932  -> silence | vote 0 | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+  5.06  kw 0.005  unk 0.168  sil 0.827  -> silence | vote 0 | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+  6.07  kw 0.002  unk 0.168  sil 0.830  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  6.07  kw 0.005  unk 0.160  sil 0.835  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  6.07  kw 0.003  unk 0.274  sil 0.723  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  6.07  kw 0.001  unk 0.071  sil 0.927  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  6.07  kw 0.003  unk 0.286  sil 0.711  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  7.08  kw 0.010  unk 0.175  sil 0.815  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  7.08  kw 0.002  unk 0.126  sil 0.872  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  7.08  kw 0.073  unk 0.477  sil 0.450  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  7.08  kw 0.630  unk 0.180  sil 0.190  -> keyword | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  7.08  kw 0.804  unk 0.092  sil 0.103  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  8.08  kw 0.946  unk 0.021  sil 0.033  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+  8.08  kw 0.998  unk 0.000  sil 0.001  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  8.08  kw 0.953  unk 0.012  sil 0.035  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  8.08  kw 0.437  unk 0.045  sil 0.518  -> silence | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  8.08  kw 0.072  unk 0.266  sil 0.662  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  9.09  kw 0.019  unk 0.112  sil 0.869  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  9.09  kw 0.001  unk 0.061  sil 0.938  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  9.09  kw 0.001  unk 0.044  sil 0.955  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  9.09  kw 0.001  unk 0.049  sil 0.950  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+  9.09  kw 0.000  unk 0.023  sil 0.977  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 10.09  kw 0.000  unk 0.024  sil 0.976  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 10.09  kw 0.000  unk 0.024  sil 0.976  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 10.09  kw 0.000  unk 0.042  sil 0.958  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 10.09  kw 0.003  unk 0.114  sil 0.883  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 10.09  kw 0.007  unk 0.634  sil 0.359  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 11.10  kw 0.099  unk 0.514  sil 0.387  -> unknown | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 11.10  kw 0.802  unk 0.082  sil 0.116  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 11.10  kw 0.976  unk 0.014  sil 0.010  -> keyword | vote 2 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%   *** SENTINEL ***
+ 11.10  kw 0.999  unk 0.000  sil 0.001  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 11.10  kw 0.945  unk 0.028  sil 0.028  -> keyword | vote 2 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 12.12  kw 0.800  unk 0.145  sil 0.055  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 12.12  kw 0.217  unk 0.510  sil 0.273  -> unknown | vote 1 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 12.12  kw 0.019  unk 0.174  sil 0.808  -> silence | vote 0 | feat 1.18 ms  infer 84.12 ms  cpu 48.0%
+ 12.12  kw 0.023  unk 0.447  sil 0.530  -> silence | vote 0 | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 12.12  kw 0.054  unk 0.745  sil 0.201  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 13.12  kw 0.068  unk 0.337  sil 0.595  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 13.12  kw 0.211  unk 0.417  sil 0.372  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 13.12  kw 0.065  unk 0.302  sil 0.633  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 13.12  kw 0.006  unk 0.083  sil 0.911  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 13.12  kw 0.004  unk 0.114  sil 0.883  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 14.13  kw 0.030  unk 0.290  sil 0.681  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 14.13  kw 0.482  unk 0.087  sil 0.430  -> keyword | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 14.13  kw 0.982  unk 0.004  sil 0.015  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 14.13  kw 0.996  unk 0.001  sil 0.003  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 14.13  kw 0.984  unk 0.003  sil 0.013  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 15.14  kw 0.753  unk 0.103  sil 0.144  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 15.14  kw 0.213  unk 0.226  sil 0.561  -> silence | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 15.14  kw 0.024  unk 0.247  sil 0.729  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 15.14  kw 0.007  unk 0.097  sil 0.896  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 15.14  kw 0.003  unk 0.108  sil 0.889  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 16.16  kw 0.001  unk 0.044  sil 0.955  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 16.16  kw 0.000  unk 0.022  sil 0.978  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 16.16  kw 0.000  unk 0.037  sil 0.962  -> silence | vote 0 | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 16.16  kw 0.001  unk 0.058  sil 0.942  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 17.17  kw 0.004  unk 0.125  sil 0.870  -> silence | vote 0 | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 17.17  kw 0.154  unk 0.205  sil 0.641  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 17.17  kw 0.480  unk 0.480  sil 0.039  -> keyword | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 17.17  kw 0.995  unk 0.001  sil 0.004  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 17.17  kw 1.000  unk 0.000  sil 0.000  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 17.17  kw 0.998  unk 0.001  sil 0.002  -> keyword | vote 1 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 18.18  kw 0.974  unk 0.006  sil 0.020  -> keyword | vote 2 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 18.18  kw 0.047  unk 0.185  sil 0.768  -> silence | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 18.18  kw 0.003  unk 0.093  sil 0.904  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 18.18  kw 0.000  unk 0.044  sil 0.956  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 18.18  kw 0.000  unk 0.035  sil 0.964  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 19.20  kw 0.000  unk 0.034  sil 0.966  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 19.20  kw 0.000  unk 0.044  sil 0.956  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 19.20  kw 0.000  unk 0.040  sil 0.960  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 19.20  kw 0.001  unk 0.093  sil 0.906  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 19.20  kw 0.014  unk 0.239  sil 0.747  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 20.21  kw 0.002  unk 0.139  sil 0.859  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 20.21  kw 0.017  unk 0.228  sil 0.755  -> silence | vote 0 | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 20.21  kw 0.009  unk 0.220  sil 0.771  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 20.21  kw 0.026  unk 0.446  sil 0.529  -> silence | vote 0 | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 20.21  kw 0.181  unk 0.795  sil 0.025  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 21.22  kw 0.735  unk 0.249  sil 0.016  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 21.22  kw 0.987  unk 0.012  sil 0.001  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 21.22  kw 0.999  unk 0.001  sil 0.001  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 21.22  kw 0.970  unk 0.010  sil 0.020  -> keyword | vote 2 | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 21.22  kw 0.947  unk 0.012  sil 0.041  -> keyword | vote 2 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 22.24  kw 0.488  unk 0.327  sil 0.185  -> keyword | vote 1 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 22.24  kw 0.154  unk 0.243  sil 0.604  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 22.24  kw 0.041  unk 0.243  sil 0.716  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 22.24  kw 0.010  unk 0.152  sil 0.838  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 22.24  kw 0.011  unk 0.272  sil 0.717  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 23.25  kw 0.009  unk 0.092  sil 0.899  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 23.25  kw 0.009  unk 0.125  sil 0.866  -> silence | vote 0 | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 23.25  kw 0.013  unk 0.083  sil 0.904  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 23.25  kw 0.107  unk 0.446  sil 0.446  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 23.25  kw 0.130  unk 0.677  sil 0.193  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 23.25  kw 0.152  unk 0.751  sil 0.097  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 24.25  kw 0.989  unk 0.006  sil 0.005  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 24.25  kw 0.951  unk 0.041  sil 0.008  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 24.25  kw 0.999  unk 0.000  sil 0.000  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 24.25  kw 0.998  unk 0.001  sil 0.001  -> keyword | vote 2 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 24.25  kw 0.944  unk 0.023  sil 0.033  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 25.26  kw 0.569  unk 0.109  sil 0.322  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 25.26  kw 0.060  unk 0.159  sil 0.781  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 25.26  kw 0.000  unk 0.028  sil 0.971  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 25.26  kw 0.000  unk 0.027  sil 0.973  -> silence | vote 0 | feat 1.18 ms  infer 84.16 ms  cpu 48.0%
+ 25.26  kw 0.000  unk 0.018  sil 0.982  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 26.28  kw 0.001  unk 0.084  sil 0.915  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 26.28  kw 0.015  unk 0.151  sil 0.834  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 26.28  kw 0.062  unk 0.258  sil 0.680  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 26.28  kw 0.018  unk 0.248  sil 0.733  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 26.28  kw 0.011  unk 0.125  sil 0.864  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 27.29  kw 0.005  unk 0.075  sil 0.920  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 27.29  kw 0.024  unk 0.198  sil 0.778  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 27.29  kw 0.046  unk 0.423  sil 0.531  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 27.29  kw 0.282  unk 0.298  sil 0.420  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 27.29  kw 0.908  unk 0.042  sil 0.050  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 28.30  kw 0.958  unk 0.013  sil 0.030  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 28.30  kw 0.981  unk 0.002  sil 0.016  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 28.30  kw 0.890  unk 0.061  sil 0.049  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 28.30  kw 0.195  unk 0.345  sil 0.459  -> silence | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 28.30  kw 0.018  unk 0.421  sil 0.560  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 29.32  kw 0.002  unk 0.084  sil 0.914  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 29.32  kw 0.001  unk 0.040  sil 0.960  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 29.32  kw 0.000  unk 0.020  sil 0.979  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 29.32  kw 0.002  unk 0.017  sil 0.980  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 29.32  kw 0.008  unk 0.044  sil 0.948  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 30.33  kw 0.007  unk 0.037  sil 0.956  -> silence | vote 0 | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 30.33  kw 0.013  unk 0.087  sil 0.900  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 30.33  kw 0.005  unk 0.083  sil 0.911  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 30.33  kw 0.031  unk 0.484  sil 0.484  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 30.33  kw 0.012  unk 0.961  sil 0.027  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 31.34  kw 0.104  unk 0.856  sil 0.040  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 31.34  kw 0.957  unk 0.025  sil 0.018  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 31.34  kw 0.954  unk 0.037  sil 0.008  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 31.34  kw 0.974  unk 0.003  sil 0.023  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 31.34  kw 0.297  unk 0.178  sil 0.525  -> silence | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 32.36  kw 0.078  unk 0.205  sil 0.717  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 32.36  kw 0.032  unk 0.375  sil 0.592  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 32.36  kw 0.005  unk 0.184  sil 0.810  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 32.36  kw 0.039  unk 0.453  sil 0.508  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 32.36  kw 0.005  unk 0.138  sil 0.857  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 33.37  kw 0.007  unk 0.113  sil 0.880  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 33.37  kw 0.016  unk 0.239  sil 0.746  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 33.37  kw 0.013  unk 0.113  sil 0.875  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 33.37  kw 0.011  unk 0.192  sil 0.798  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 33.37  kw 0.001  unk 0.055  sil 0.944  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 34.38  kw 0.003  unk 0.075  sil 0.922  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 34.38  kw 0.004  unk 0.079  sil 0.917  -> silence | vote 0 | feat 1.18 ms  infer 84.15 ms  cpu 48.0%
+ 34.38  kw 0.003  unk 0.049  sil 0.948  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 34.38  kw 0.076  unk 0.135  sil 0.789  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 34.38  kw 0.573  unk 0.273  sil 0.154  -> keyword | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 35.38  kw 0.970  unk 0.012  sil 0.018  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 35.38  kw 0.999  unk 0.000  sil 0.001  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 35.38  kw 1.000  unk 0.000  sil 0.000  -> keyword | vote 1 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 35.38  kw 0.999  unk 0.000  sil 0.001  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 36.39  kw 0.960  unk 0.005  sil 0.035  -> keyword | vote 2 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 36.39  kw 0.414  unk 0.094  sil 0.491  -> silence | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 36.39  kw 0.080  unk 0.095  sil 0.825  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 36.39  kw 0.066  unk 0.290  sil 0.644  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 36.39  kw 0.010  unk 0.113  sil 0.877  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 36.39  kw 0.020  unk 0.329  sil 0.651  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 37.40  kw 0.004  unk 0.088  sil 0.908  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 37.40  kw 0.001  unk 0.055  sil 0.944  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 37.40  kw 0.001  unk 0.049  sil 0.950  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 37.40  kw 0.000  unk 0.034  sil 0.966  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 37.40  kw 0.000  unk 0.042  sil 0.958  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 38.41  kw 0.000  unk 0.020  sil 0.980  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 38.41  kw 0.001  unk 0.108  sil 0.891  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 38.41  kw 0.007  unk 0.581  sil 0.413  -> unknown | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 38.41  kw 0.435  unk 0.516  sil 0.050  -> unknown | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 38.41  kw 0.971  unk 0.024  sil 0.005  -> keyword | vote 1 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 39.42  kw 1.000  unk 0.000  sil 0.000  -> keyword | vote 2 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%   *** SENTINEL ***
+ 39.42  kw 0.998  unk 0.001  sil 0.001  -> keyword | vote 1 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 39.42  kw 0.651  unk 0.056  sil 0.293  -> keyword | vote 1 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 39.42  kw 0.051  unk 0.211  sil 0.738  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 39.42  kw 0.000  unk 0.037  sil 0.962  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
+ 39.42  kw 0.000  unk 0.019  sil 0.981  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 40.44  kw 0.000  unk 0.019  sil 0.981  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 40.44  kw 0.000  unk 0.037  sil 0.962  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 40.44  kw 0.001  unk 0.075  sil 0.924  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 40.44  kw 0.001  unk 0.061  sil 0.938  -> silence | vote 0 | feat 1.18 ms  infer 84.14 ms  cpu 48.0%
+ 40.44  kw 0.001  unk 0.068  sil 0.931  -> silence | vote 0 | feat 1.18 ms  infer 84.13 ms  cpu 48.0%
